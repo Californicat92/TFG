@@ -1,3 +1,5 @@
+// PARA COMPILAR: gcc bbdd.c -o bbdd -lsqlite3
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <sqlite3.h> 
