@@ -22,7 +22,7 @@ int main(int argc, char* argv[]) {
    const char* data = "Callback function called";
 
    /* Open database */
-   rc = sqlite3_open("/home/cali/Desktop/ADSTR/ADSTR_2019/src/captura/captura.db", &db);
+   rc = sqlite3_open("captura.db", &db);
    
    if( rc ) {
       fprintf(stderr, "Can't open database: %s\n", sqlite3_errmsg(db));
@@ -32,7 +32,7 @@ int main(int argc, char* argv[]) {
    }
 
    /* Create SQL statement */
-   sql = "SELECT * from COMPANY";
+   sql = "SELECT * FROM Lectures_table";
 
    /* Execute SQL statement */
    rc = sqlite3_exec(db, sql, callback, (void*)data, &zErrMsg);
