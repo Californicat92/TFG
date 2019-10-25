@@ -14,6 +14,12 @@ static int callback(void *data, int argc, char **argv, char **azColName){
    return 0;
 }
 
+char getValues(char orden, char sensor){
+		sqlite3 *db;
+		return 0;
+}
+
+
 int main(int argc, char* argv[]) {
    sqlite3 *db;
    char *zErrMsg = 0;
@@ -22,7 +28,7 @@ int main(int argc, char* argv[]) {
    const char* data = "Callback function called";
 
    /* Open database */
-   rc = sqlite3_open("captura.db", &db);
+   rc = sqlite3_open("/home/cali/Desktop/ADSTR/ADSTR_2019/db/captura.db", &db);
    
    if( rc ) {
       fprintf(stderr, "Can't open database: %s\n", sqlite3_errmsg(db));
@@ -32,7 +38,7 @@ int main(int argc, char* argv[]) {
    }
 
    /* Create SQL statement */
-   sql = "SELECT * FROM Lectures_table";
+   sql = "SELECT * FROM Sensors_table";
 
    /* Execute SQL statement */
    rc = sqlite3_exec(db, sql, callback, (void*)data, &zErrMsg);
