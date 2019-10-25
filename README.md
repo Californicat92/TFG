@@ -5,7 +5,7 @@ Descarga fichero de Github
 git clone https://github.com/Californicat92/ADSTR_2019.git
 
 For update you dir
-cd ADSTR_2019/
+cd ADSTR_2019/ (enter)
 git pull
 
 For update
