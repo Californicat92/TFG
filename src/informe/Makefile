@@ -12,4 +12,4 @@ informe.o: informe.c
 	./informe
 
 clean:
-	rm -rf *o *db informe bbdd
+	rm -rf *o *db *txt informe bbdd
