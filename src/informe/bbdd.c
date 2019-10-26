@@ -20,7 +20,7 @@ int main(int argc, char* argv[]) {
    char *sql;
 
    /* Open database */
-   rc = sqlite3_open("/home/cali/Desktop/ADSTR/ADSTR_2019/db/captura.db", &db);
+   rc = sqlite3_open("Captura.db", &db);
    
    if( rc ) {
       fprintf(stderr, "Can't open database: %s\n", sqlite3_errmsg(db));
