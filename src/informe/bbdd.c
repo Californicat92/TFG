@@ -20,13 +20,11 @@ int main(int argc, char* argv[]) {
    char *sql;
 
    /* Open database */
-   rc = sqlite3_open("Captura.db", &db);
+   rc = sqlite3_open("captura.db", &db);
    
    if( rc ) {
       fprintf(stderr, "Can't open database: %s\n", sqlite3_errmsg(db));
       return(0);
-   } else {
-      fprintf(stderr, "Opened database successfully\n");
    }
 //-----------------------------------------------------------------------------
    /* Create SQL statement */
@@ -41,8 +39,6 @@ int main(int argc, char* argv[]) {
    if( rc != SQLITE_OK ){
       fprintf(stderr, "SQL error: %s\n", zErrMsg);
       sqlite3_free(zErrMsg);
-   } else {
-      fprintf(stdout, "Table created successfully\n");
    }
    
    /* Create SQL statement */
@@ -57,8 +53,6 @@ int main(int argc, char* argv[]) {
    if( rc != SQLITE_OK ){
       fprintf(stderr, "SQL error: %s\n", zErrMsg);
       sqlite3_free(zErrMsg);
-   } else {
-      fprintf(stdout, "Records created successfully\n");
    }
 //-----------------------------------------------------------------------------
    /* Create SQL statement */
@@ -73,9 +67,7 @@ int main(int argc, char* argv[]) {
    if( rc != SQLITE_OK ){
       fprintf(stderr, "SQL error: %s\n", zErrMsg);
       sqlite3_free(zErrMsg);
-   } else {
-      fprintf(stdout, "Table created successfully\n");
-   }   
+   } 
    
    /* Create SQL statement */
    sql = 	"INSERT INTO Lectures_table (Date_time_lecture,ID,Value) "	\
@@ -93,8 +85,6 @@ int main(int argc, char* argv[]) {
    if( rc != SQLITE_OK ){
       fprintf(stderr, "SQL error: %s\n", zErrMsg);
       sqlite3_free(zErrMsg);
-   } else {
-      fprintf(stdout, "Records created successfully\n");
    }
 //-----------------------------------------------------------------------------
    /* Create SQL statement */
@@ -107,9 +97,7 @@ int main(int argc, char* argv[]) {
    if( rc != SQLITE_OK ){
       fprintf(stderr, "SQL error: %s\n", zErrMsg);
       sqlite3_free(zErrMsg);
-   } else {
-      fprintf(stdout, "Table created successfully\n");
-   }
+   } 
       
    /* Create SQL statement */
    sql = "INSERT INTO Alarms_table (Date_time_alarm,Alarm_description) "  \
@@ -123,9 +111,7 @@ int main(int argc, char* argv[]) {
    if( rc != SQLITE_OK ){
       fprintf(stderr, "SQL error: %s\n", zErrMsg);
       sqlite3_free(zErrMsg);
-   } else {
-      fprintf(stdout, "Records created successfully\n");
-	}
+   }
 //-----------------------------------------------------------------------------
 
    sqlite3_close(db);
