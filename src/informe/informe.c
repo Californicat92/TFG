@@ -62,19 +62,24 @@ int main(int argc, char* argv[]) {
 		{
 			/*Selección de comando SQL*/
 			if (orden == 1){
-				sql =	"SELECT MIN(Date_time_lecture) FROM Lectures_table " \
+				/*sql =	"SELECT MIN(Date_time_lecture) FROM Lectures_table " \
 						"WHERE 	ID = 1";
+						*/
 				//sprintf(mensaje, "SELECT MIN(Date_time_lecture) FROM Lectures_table WHERE ID = %d",ID);
+				
+				sprintf(sql, "SELECT MIN(Date_time_lecture) FROM Lectures_table WHERE ID = %d", ID);
 			}
 
 			else if (orden == 2){
-				sql =	"SELECT MAX(Date_time_lecture) FROM Lectures_table " \
-						"WHERE 	ID = 1";
+				/*sql =	"SELECT MAX(Date_time_lecture) FROM Lectures_table " \
+						"WHERE 	ID = 1";*/
+				sprintf(sql, "SELECT MAX(Date_time_lecture) FROM Lectures_table WHERE ID = %d", ID);
 			}
 
 			else if (orden == 3){
-				sql = 	"SELECT MAX(Value) FROM Lectures_table " \
-						"WHERE 	ID = 2";
+				/*sql = 	"SELECT MAX(Value) FROM Lectures_table " \
+						"WHERE 	ID = 2";*/
+				sprintf(sql, "SELECT MAX(Value) FROM Lectures_table WHERE ID = %d", ID);
 			}
 
 			else if (orden == 4){
@@ -87,9 +92,9 @@ int main(int argc, char* argv[]) {
 						"WHERE 	ID = 2";
 			}
 
-			else if (orden == 6){
+			/*else if (orden == 6){
 				sql =	"SELECT * FROM Alarms_table";
-			}
+			}*/
 
 			/* Execute SQL statement */
 			rc = sqlite3_exec(db, sql, callback, (void*)data, &zErrMsg);
