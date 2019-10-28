@@ -29,7 +29,7 @@ char getValues(char orden, char sensor){
 	sqlite3 *db;
 	char *zErrMsg = 0;
 	int rc;
-	char *sql;
+	char sql[80];
 	const char* data = "Callback function called";
 	
 	/*Selección de comando SQL*/

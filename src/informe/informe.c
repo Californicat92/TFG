@@ -1,4 +1,22 @@
-//gcc informe.c -o informe -lsqlite3
+/*
+ * Formato Captura.db
+ * 
+ * 	· Sensors_table
+ * 		- ID
+ * 		- Types (Magnitud)
+ * 		- Description
+ * 
+ * 	· Lectures_table
+ * 		- Date_time_lecture
+ * 		- ID
+ * 		- Value
+ * 
+ * 	· Alarms_table
+ * 		- Date_time_alarm
+ * 		- Alarm_description
+ */
+
+/gcc informe.c -o informe -lsqlite3
 #include <stdio.h>
 #include <stdlib.h>
 #include <sqlite3.h> 
@@ -12,23 +30,22 @@ FILE * fp;
 
 static int callback(void *data, int argc, char **argv, char **azColName){
    int i;
-
-
+   char val[80];
 
 	//fprintf(stderr, "%s: ", (const char*)data);
    
    for(i = 0; i<argc; i++){
-		printf("\n %s = %s\n", azColName[i], argv[i] ? argv[i] : "NULL");
-		fprintf(fp,"\n %s = %s\n", azColName[i], argv[i] ? argv[i] : "NULL");
+		//~ printf("\n%s\n", argv[i] ? argv[i] : "NULL");
+		//~ fprintf(fp,"\n%s\n", argv[i] ? argv[i] : "NULL");
+		sprintf(val, "\n%s\n", argv[i] ? argv[i] : "NULL");
+		printf(val);
+		fprintf(fp, val);
    }
-  
-   printf("\n");
    return 0;
 }
 
-char getValues(char orden, char sensor){
-
-		return 0;
+char getValues(char orden, char id){
+	return 0;
 }
 
 
@@ -75,11 +92,11 @@ int main(int argc, char* argv[]) {
 			}
 
 			else if (orden == 4){
-				sprintf(sql, "SELECT MIN(Value) FROM Lectures_table WHERE 	ID = %d", ID);
+				sprintf(sql, "SELECT MIN(Value) FROM Lectures_table WHERE ID = %d", ID);
 			}
 
 			else if (orden == 5){
-				sprintf(sql, "SELECT AVG(Value) FROM Lectures_table WHERE 	ID = %d", ID);
+				sprintf(sql, "SELECT AVG(Value) FROM Lectures_table WHERE ID = %d", ID);
 			}
 
 			else if (orden == 6){
