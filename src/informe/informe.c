@@ -18,9 +18,8 @@ static int callback(void *data, int argc, char **argv, char **azColName){
 	//fprintf(stderr, "%s: ", (const char*)data);
    
    for(i = 0; i<argc; i++){
-      printf("%s = %s\n", azColName[i], argv[i] ? argv[i] : "NULL");
-   fprintf(fp,"\n");
-   fprintf(fp,"%s = %s\n", azColName[i], argv[i] ? argv[i] : "NULL");
+		printf("\n %s = %s\n", azColName[i], argv[i] ? argv[i] : "NULL");
+		fprintf(fp,"\n %s = %s\n", azColName[i], argv[i] ? argv[i] : "NULL");
    }
   
    printf("\n");
@@ -35,7 +34,7 @@ char getValues(char orden, char sensor){
 
 int main(int argc, char* argv[]) {
 
-	char *sql;
+	char sql[80];
 	const char* data = "Callback function called";
 
 	/* Open database */
@@ -58,44 +57,35 @@ int main(int argc, char* argv[]) {
 	int orden = 0, ID=0;
 	for (ID = 1; ID < 3; ID++)
 	{
+		printf("\n\nInforme de sensor: %d \n",ID);
+		fprintf(fp,"\n\nInforme de sensor: %d \n",ID);
 		for (orden = 1; orden < 7; orden++)
 		{
 			/*Selección de comando SQL*/
 			if (orden == 1){
-				/*sql =	"SELECT MIN(Date_time_lecture) FROM Lectures_table " \
-						"WHERE 	ID = 1";
-						*/
-				//sprintf(mensaje, "SELECT MIN(Date_time_lecture) FROM Lectures_table WHERE ID = %d",ID);
-				
 				sprintf(sql, "SELECT MIN(Date_time_lecture) FROM Lectures_table WHERE ID = %d", ID);
 			}
 
 			else if (orden == 2){
-				/*sql =	"SELECT MAX(Date_time_lecture) FROM Lectures_table " \
-						"WHERE 	ID = 1";*/
 				sprintf(sql, "SELECT MAX(Date_time_lecture) FROM Lectures_table WHERE ID = %d", ID);
 			}
 
 			else if (orden == 3){
-				/*sql = 	"SELECT MAX(Value) FROM Lectures_table " \
-						"WHERE 	ID = 2";*/
 				sprintf(sql, "SELECT MAX(Value) FROM Lectures_table WHERE ID = %d", ID);
 			}
 
 			else if (orden == 4){
-				sql =	"SELECT MIN(Value) FROM Lectures_table " \
-						"WHERE 	ID = 2";
+				sprintf(sql, "SELECT MIN(Value) FROM Lectures_table WHERE 	ID = %d", ID);
 			}
 
 			else if (orden == 5){
-				sql =	"SELECT AVG(Value) FROM Lectures_table " \
-						"WHERE 	ID = 2";
+				sprintf(sql, "SELECT AVG(Value) FROM Lectures_table WHERE 	ID = %d", ID);
 			}
 
-			/*else if (orden == 6){
-				sql =	"SELECT * FROM Alarms_table";
-			}*/
-
+			else if (orden == 6){
+				sprintf(sql, "SELECT * FROM Alarms_table");
+			}
+			
 			/* Execute SQL statement */
 			rc = sqlite3_exec(db, sql, callback, (void*)data, &zErrMsg);
 
@@ -105,6 +95,7 @@ int main(int argc, char* argv[]) {
 			}
 		}
 	}
+	
    fclose(fp); 
    sqlite3_close(db);
    return 0;
