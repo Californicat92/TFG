@@ -30,12 +30,8 @@ FILE * fp;
 
 static int getValues(void *data, int argc, char **argv, char **azColName){
    int i;
-
-	//fprintf(stderr, "%s: ", (const char*)data);
-   
+      
    for(i = 0; i<argc; i++){
-		//~ printf("\n%s\n", argv[i] ? argv[i] : "NULL");
-		//~ fprintf(fp,"\n%s\n", argv[i] ? argv[i] : "NULL");
 		memset(data,'\0',100);		
 		sprintf(data, "\n%s\n", argv[i] ? argv[i] : "NULL");
 		printf("%s", (char *)data);
