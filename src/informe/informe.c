@@ -16,7 +16,7 @@
  * 		- Alarm_description
  */
 
-/gcc informe.c -o informe -lsqlite3
+//gcc informe.c -o informe -lsqlite3
 #include <stdio.h>
 #include <stdlib.h>
 #include <sqlite3.h> 
@@ -28,32 +28,29 @@ char *zErrMsg = 0;
 int rc;
 FILE * fp;
 
-static int callback(void *data, int argc, char **argv, char **azColName){
+static int getValues(void *data, int argc, char **argv, char **azColName){
    int i;
-   char val[80];
 
 	//fprintf(stderr, "%s: ", (const char*)data);
    
    for(i = 0; i<argc; i++){
 		//~ printf("\n%s\n", argv[i] ? argv[i] : "NULL");
 		//~ fprintf(fp,"\n%s\n", argv[i] ? argv[i] : "NULL");
-		sprintf(val, "\n%s\n", argv[i] ? argv[i] : "NULL");
-		printf(val);
-		fprintf(fp, val);
+		memset(data,'\0',100);		
+		sprintf(data, "\n%s\n", argv[i] ? argv[i] : "NULL");
+		printf("%s", (char *)data);
+		fprintf(fp,"%s", (char *)data);
    }
    return 0;
 }
 
-char getValues(char orden, char id){
-	return 0;
-}
 
 
 int main(int argc, char* argv[]) {
 
 	char sql[80];
-	const char* data = "Callback function called";
-
+	char data[100];
+	int nSen=0;
 	/* Open database */
 	rc = sqlite3_open("captura.db", &db);
 
@@ -69,8 +66,23 @@ int main(int argc, char* argv[]) {
     { 
         printf("Could not open file"); 
         return 0; 
-    }  
-      
+    }
+	  
+	/* Lectura nº sensores */
+	memset(data,'\0',100);
+	sprintf(sql, "SELECT MAX(ID) FROM Lectures_table");
+	
+	/* Execute SQL statement */
+	rc = sqlite3_exec(db, sql, getValues, (void*)data, &zErrMsg);
+
+	if( rc != SQLITE_OK ) {
+	  fprintf(stderr, "SQL error: %s\n", zErrMsg);
+	  sqlite3_free(zErrMsg);
+	}
+	nSen = atoi(data);
+	printf("El numero de sensores es %d",nSen);
+	
+	    
 	int orden = 0, ID=0;
 	for (ID = 1; ID < 3; ID++)
 	{
@@ -104,7 +116,7 @@ int main(int argc, char* argv[]) {
 			}
 			
 			/* Execute SQL statement */
-			rc = sqlite3_exec(db, sql, callback, (void*)data, &zErrMsg);
+			rc = sqlite3_exec(db, sql, getValues, (void*)data, &zErrMsg);
 
 			if( rc != SQLITE_OK ) {
 			  fprintf(stderr, "SQL error: %s\n", zErrMsg);
