@@ -87,7 +87,7 @@ int main(int argc, char* argv[]){
 	}
 
 	/* Open document */
-	fp = fopen("informe.txt", "w"); 
+	fp = fopen("informe3.txt", "w"); 
     if (fp == NULL){ 
         printf("Could not open file"); 
         return 0; 
@@ -112,42 +112,42 @@ int main(int argc, char* argv[]){
 		//Sensor
 		sprintf(texto, "\n\nInforme de sensor %d:\n", n);
 		fprintf(fp,"%s", texto);
-		memset(texto,'\0', 400);
+		memset(texto,'\0', sizeof(texto));
 		
 		//Fecha/hora inicial
 		sprintf(sql, "SELECT MIN(Date_time_lecture) FROM Lectures_table WHERE ID = %d", n);
 		rc = sqlite3_exec(db, sql, getValues, (void*)data, &zErrMsg);
-		sprintf(texto, "Fecha/hora inicio: %s\n", data);
+		sprintf(texto, "\tFecha/hora inicio: %s\n", data);
 		fprintf(fp,"%s",texto);
-		memset(texto,'\0', 400);
+		memset(texto,'\0', sizeof(texto));
 		
 		//Fecha/hora final
 		sprintf(sql, "SELECT MAX(Date_time_lecture) FROM Lectures_table WHERE ID = %d", n);
 		sqlite3_exec(db, sql, getValues, (void*)data, &zErrMsg);
-		sprintf(texto, "Fecha/hora final: %s\n", data);
+		sprintf(texto, "\tFecha/hora final: %s\n", data);
 		fprintf(fp,"%s",texto);
-		memset(texto,'\0', 400);
+		memset(texto,'\0', sizeof(texto));
 		
 		//Valor máximo
 		sprintf(sql, "SELECT MAX(Value) FROM Lectures_table WHERE ID = %d", n);
 		sqlite3_exec(db, sql, getValues, (void*)data, &zErrMsg);
-		sprintf(texto, "El valor máximo de tensión registrado en el sistema es: %s V\n", data);
+		sprintf(texto, "\tEl valor máximo de tensión registrado: %s V\n", data);
 		fprintf(fp,"%s",texto);
-		memset(texto,'\0', 400);
+		memset(texto,'\0', sizeof(texto));
 		
 		//Valor mínimo
 		sprintf(sql, "SELECT MIN(Value) FROM Lectures_table WHERE ID = %d", n);
 		sqlite3_exec(db, sql, getValues, (void*)data, &zErrMsg);
-		sprintf(texto, "El valor mínimo de tensión registrado es: %s V\n", data);
+		sprintf(texto, "\tEl valor mínimo de tensión registrado: %s V\n", data);
 		fprintf(fp,"%s",texto);
-		memset(texto,'\0', 400);
+		memset(texto,'\0', sizeof(texto));
 		
 		//Valor medio
 		sprintf(sql, "SELECT AVG(Value) FROM Lectures_table WHERE ID = %d", n);
 		sqlite3_exec(db, sql, getValues, (void*)data, &zErrMsg);
-		sprintf(texto, "El valor medio de tensión obtenido es: %s V\n", data);
+		sprintf(texto, "\tEl valor medio de tensión obtenido: %s V\n\n", data);
 		fprintf(fp,"%s",texto);
-		memset(texto,'\0', 400);
+		memset(texto,'\0', sizeof(texto));
 	}
 	if( rc != SQLITE_OK ) {
 	fprintf(stderr, "SQL error: %s\n", zErrMsg);
@@ -158,9 +158,9 @@ int main(int argc, char* argv[]){
 	fprintf(fp, "\n\nLas alarmas sucedidas en las úliamas 24h han sido:\n");
 	sprintf(sql, "SELECT * FROM Alarms_table");
 	sqlite3_exec(db, sql, Alarmas, (void*)data, &zErrMsg);
-	sprintf(texto, "%s", data);
+	sprintf(texto, "\t%s", data);
 	fprintf(fp,"%s",texto);
-	memset(texto,'\0', 400);
+	memset(texto,'\0', sizeof(texto));
 
 	if( rc != SQLITE_OK ) {
 	fprintf(stderr, "SQL error: %s\n", zErrMsg);
