@@ -16,4 +16,4 @@ informe3.o: Informe3.c
 	./informe3
 
 clean:
-	rm -rf *o *db *txt informe bbdd
+	rm -rf *o *db *txt informe bbdd informe3
