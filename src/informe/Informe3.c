@@ -170,7 +170,6 @@ int main(int argc, char* argv[]){
 		sprintf(texto, "\tDescripción de la alarma: %s\n\n",data);
 		fprintf(fp,"%s",texto);
 		memset(texto,'\0', sizeof(texto));
-		
 	}
 
 	if( rc != SQLITE_OK ) {
