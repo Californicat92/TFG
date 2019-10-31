@@ -39,7 +39,15 @@
  * 		- Alarm_description
  */
 
-//gcc Informe3.c -o informe -lsqlite3
+/*gcc Informe3.c -o informe -lsqlite3
+* arm-linux-gnueabihf-gcc informe.c -o informe -lsqlite3
+*
+* scp nom_executable pi@192.168.11.10X:/tmp
+* (on X és el número de dispositiu si es conecta a través de la xarxa LAN i /tmp és el directori destí).
+* pi@192.168.11.20X:/tmp para WIFI
+*
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <sqlite3.h>
