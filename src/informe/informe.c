@@ -75,7 +75,7 @@ int main(int argc, char* argv[]){
 	int nAlarm;
 	char data[200];
 	char texto[400];
-	
+	char *fecha,*hora;	
 	/* Open database */
 	rc = sqlite3_open("captura.db", &db);
 
@@ -85,7 +85,7 @@ int main(int argc, char* argv[]){
 	}
 
 	/* Open document */
-	fp = fopen("informe3.txt", "w"); 
+	fp = fopen("informe.txt", "w"); 
     if (fp == NULL){ 
         printf("Could not open file"); 
         return 0; 
@@ -93,7 +93,7 @@ int main(int argc, char* argv[]){
     
     /* Lectura nº sensores */
 	memset(data,'\0',sizeof(data));
-	sprintf(sql, "SELECT MAX(ID) FROM Lectures_table");
+	sprintf(sql, "SELECT MAX(ID) FROM Sensors_table");
 	
 	/* Execute SQL statement */
 	rc = sqlite3_exec(db, sql, getValues, (void*)data, &zErrMsg);
@@ -104,7 +104,6 @@ int main(int argc, char* argv[]){
 	}
 	nSen = atoi(data);
 	//~ printf("\n\nEl numero de sensores es %d\n",nSen);
-	
 	int n;
 	for (n = 1; n <= nSen; n++){
 		//Sensor
@@ -115,14 +114,18 @@ int main(int argc, char* argv[]){
 		//Fecha/hora inicial
 		sprintf(sql, "SELECT MIN(Date_time_lecture) FROM Lectures_table WHERE ID = %d", n);
 		rc = sqlite3_exec(db, sql, getValues, (void*)data, &zErrMsg);
-		sprintf(texto, "\tFecha/hora inicio: %s\n", data);
+		fecha = strtok(data," ");
+		hora = strtok(hora," ");
+		sprintf(texto, "\tLa lectura empieza el dia: %s a las: %s\n", fecha,hora);
 		fprintf(fp,"%s",texto);
 		memset(texto,'\0', sizeof(texto));
 		
 		//Fecha/hora final
 		sprintf(sql, "SELECT MAX(Date_time_lecture) FROM Lectures_table WHERE ID = %d", n);
 		sqlite3_exec(db, sql, getValues, (void*)data, &zErrMsg);
-		sprintf(texto, "\tFecha/hora final: %s\n", data);
+		fecha = strtok(data," ");
+		hora = strtok(hora," ");
+		sprintf(texto, "\tLa lectura acaba el dia: %s a las: %s\n", fecha,hora);
 		fprintf(fp,"%s",texto);
 		memset(texto,'\0', sizeof(texto));
 		
@@ -151,28 +154,27 @@ int main(int argc, char* argv[]){
 	fprintf(stderr, "SQL error: %s\n", zErrMsg);
 	sqlite3_free(zErrMsg);
 	}
-		
+	
 	// Obtener numero de alarmas de la BBDD en SQL
 	sprintf(sql, "SELECT Count(*) FROM Alarms_table");
 	/* Execute SQL statement */
 	rc = sqlite3_exec(db, sql, getValues, (void*)data, &zErrMsg);
-
 	if( rc != SQLITE_OK ) {
-	  fprintf(stderr, "SQL er	ror: %s\n", zErrMsg);
+	  fprintf(stderr, "SQL error: %s\n", zErrMsg);
 	  sqlite3_free(zErrMsg);
 	}
 	nAlarm = atoi(data);
 	// Imprimir alarmas
 	int x;
-	fprintf(fp, "\n\nLas alarmas sucedidas en las úliamas 24h han sido:\n\n");
+	fprintf(fp, "\n\nListado de alarmas:\n\n");
 	for (x = 1; x <= nAlarm; x++){
 		sprintf(sql, "SELECT Date_time_alarm FROM Alarms_table WHERE rowid = %d",x);
 		sqlite3_exec(db, sql, getValues, (void*)data, &zErrMsg);
-		sprintf(texto, "\tLa alarma Nº%d ha ocurrido el: %s\n",x,data);
+		fecha = strtok(data," ");
+		hora = strtok(hora," ");
+		sprintf(texto, "\t%d.- Alarma ocurrida el dia: %s a las: %s\n", x,fecha,hora);
 		fprintf(fp,"%s",texto);
 		memset(texto,'\0', sizeof(texto));
-
-		//~ Eprintf("%s\n", texto);
 		sprintf(sql, "SELECT Alarm_description FROM Alarms_table WHERE rowid = %d",x);
 		sqlite3_exec(db, sql, getValues, (void*)data, &zErrMsg);
 		sprintf(texto, "\tDescripción de la alarma: %s\n\n",data);
