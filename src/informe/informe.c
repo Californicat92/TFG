@@ -1,9 +1,9 @@
 /**
- * @package XXXXXXXXXXXX
- * @subpackage XXXXXXX
+ * @package ADSTR
+ * @subpackage Informe
  * @version   1.0
 
- * @author    Adri, Fran i Christopher EUSS
+ * @author    Adrián, Fran i Christopher
  * @copyright (C) 2019 Alumne EUSS
  *
  * @license        GNU/GPL, see COPYING
@@ -83,7 +83,8 @@ int main(int argc, char *argv[])
 	rc = sqlite3_open("captura.db", &db);
 
 	if (rc)
-		fprintf(stderr, "Can't open database: %s\n", sqlite3_errmsg(db));
+		fprintf(stderr, "Can't open database: %s\n",
+		sqlite3_errmsg(db));
 
 	/* Open document */
 	fp = fopen("informe.txt", "w");
@@ -112,41 +113,51 @@ int main(int argc, char *argv[])
 		memset(texto, '\0', sizeof(texto));
 
 		//Fecha/hora inicial
-		sprintf(sql, "SELECT MIN(Date_time_lecture) FROM Lectures_table WHERE ID = %d", n);
+		sprintf(sql, "SELECT MIN(Date_time_lecture) FROM "\
+			"Lectures_table WHERE ID = %d", n);
 		rc = sqlite3_exec(db, sql, getValues, (void *)data, &zErrMsg);
 		fecha = strtok(data, " ");
 		hora = strtok(hora, " ");
-		sprintf(texto, "\tLa lectura empieza el dia: %s a las: %s\n", fecha, hora);
+		sprintf(texto, "\tLa lectura empieza el dia: %s a las: %s\n",
+			fecha, hora);
 		fprintf(fp, "%s", texto);
 		memset(texto, '\0', sizeof(texto));
 
 		//Fecha/hora final
-		sprintf(sql, "SELECT MAX(Date_time_lecture) FROM Lectures_table WHERE ID = %d", n);
+		sprintf(sql, "SELECT MAX(Date_time_lecture) FROM "\
+			"Lectures_table WHERE ID = %d", n);
 		sqlite3_exec(db, sql, getValues, (void *)data, &zErrMsg);
 		fecha = strtok(data, " ");
 		hora = strtok(hora, " ");
-		sprintf(texto, "\tLa lectura acaba el dia: %s a las: %s\n", fecha, hora);
+		sprintf(texto, "\tLa lectura acaba el dia: %s a las: %s\n",
+			fecha, hora);
 		fprintf(fp, "%s", texto);
 		memset(texto, '\0', sizeof(texto));
 
 		//Valor máximo
-		sprintf(sql, "SELECT MAX(Value) FROM Lectures_table WHERE ID = %d", n);
+		sprintf(sql, "SELECT MAX(Value) FROM "\
+			"Lectures_table WHERE ID = %d", n);
 		sqlite3_exec(db, sql, getValues, (void *)data, &zErrMsg);
-		sprintf(texto, "\tEl valor máximo de tensión registrado: %s V\n", data);
+		sprintf(texto, "\tEl valor máximo de tensión registrado: "
+			"%s V\n", data);
 		fprintf(fp, "%s", texto);
 		memset(texto, '\0', sizeof(texto));
 
 		//Valor mínimo
-		sprintf(sql, "SELECT MIN(Value) FROM Lectures_table WHERE ID = %d", n);
+		sprintf(sql, "SELECT MIN(Value) FROM Lectures_table WHERE "\
+			"ID = %d", n);
 		sqlite3_exec(db, sql, getValues, (void *)data, &zErrMsg);
-		sprintf(texto, "\tEl valor mínimo de tensión registrado: %s V\n", data);
+		sprintf(texto, "\tEl valor mínimo de tensión registrado: "\
+			"%s V\n", data);
 		fprintf(fp, "%s", texto);
 		memset(texto, '\0', sizeof(texto));
 
 		//Valor medio
-		sprintf(sql, "SELECT AVG(Value) FROM Lectures_table WHERE ID = %d", n);
+		sprintf(sql, "SELECT AVG(Value) FROM Lectures_table WHERE "\
+			"ID = %d", n);
 		sqlite3_exec(db, sql, getValues, (void *)data, &zErrMsg);
-		sprintf(texto, "\tEl valor medio de tensión obtenido: %s V\n\n", data);
+		sprintf(texto, "\tEl valor medio de tensión obtenido: "\
+			"%s V\n\n", data);
 		fprintf(fp, "%s", texto);
 		memset(texto, '\0', sizeof(texto));
 	}
@@ -169,14 +180,17 @@ int main(int argc, char *argv[])
 
 	fprintf(fp, "\n\nListado de alarmas:\n");
 	for (x = 1; x <= nAlarm; x++) {
-		sprintf(sql, "SELECT Date_time_alarm FROM Alarms_table WHERE rowid = %d", x);
+		sprintf(sql, "SELECT Date_time_alarm FROM Alarms_table WHERE "\
+			"rowid = %d", x);
 		sqlite3_exec(db, sql, getValues, (void *)data, &zErrMsg);
 		fecha = strtok(data, " ");
 		hora = strtok(hora, " ");
-		sprintf(texto, "\t%d.- Alarma ocurrida el dia: %s a las: %s\n", x, fecha, hora);
+		sprintf(texto, "\t%d.- Alarma ocurrida el día %s a las %s\n",
+		x, fecha, hora);
 		fprintf(fp, "%s", texto);
 		memset(texto, '\0', sizeof(texto));
-		sprintf(sql, "SELECT Alarm_description FROM Alarms_table WHERE rowid = %d", x);
+		sprintf(sql, "SELECT Alarm_description FROM Alarms_table "\
+			"WHERE rowid = %d", x);
 		sqlite3_exec(db, sql, getValues, (void *)data, &zErrMsg);
 		sprintf(texto, "\tDescripción de la alarma: %s\n\n", data);
 		fprintf(fp, "%s", texto);
@@ -187,7 +201,8 @@ int main(int argc, char *argv[])
 		fprintf(stderr, "SQL error: %s\n", zErrMsg);
 		sqlite3_free(zErrMsg);
 	} else {
-		printf("\nEjecución correcta, revise el documento informe.txt\n\n");
+		printf("\nEjecución correcta, revise el documento "\
+			"informe.txt\n\n");
 	}
 
 	fclose(fp);
