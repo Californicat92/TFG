@@ -167,7 +167,7 @@ int main(int argc, char *argv[])
 	// Imprimir alarmas
 	int x;
 
-	fprintf(fp, "\n\nListado de alarmas:\n\n");
+	fprintf(fp, "\n\nListado de alarmas:\n");
 	for (x = 1; x <= nAlarm; x++) {
 		sprintf(sql, "SELECT Date_time_alarm FROM Alarms_table WHERE rowid = %d", x);
 		sqlite3_exec(db, sql, getValues, (void *)data, &zErrMsg);
