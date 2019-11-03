@@ -11,5 +11,9 @@ informe.o: informe.c
 	gcc informe.c -o informe -lsqlite3
 	./informe
 
+doxygen:
+	doxygen Doxyfile
+
 clean:
-	rm -rf *o *db *txt informe bbdd informe3
+	rm -rf *o *db *txt informe bbdd informe3 -r doc
+

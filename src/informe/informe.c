@@ -2,8 +2,8 @@
  * @package ADSTR
  * @subpackage Informe
  * @version   1.0
-
- * @author    Adrián, Fran i Christopher
+ *
+ * @author    Adrián, Fran & Christopher
  * @copyright (C) 2019 Alumne EUSS
  *
  * @license        GNU/GPL, see COPYING
@@ -21,8 +21,8 @@
  *
  */
 
-/*
- * Formato Captura.db
+/**
+ * Formato bases de datos a usar:
  *
  *	· Sensors_table
  *		- ID
@@ -39,9 +39,10 @@
  *		- Alarm_description
  */
 
-/*gcc Informe3.c -o informe -lsqlite3
+/**
+ * gcc Informe3.c -o informe -lsqlite3
  * arm-linux-gnueabihf-gcc informe.c -o informe -lsqlite3
- *
+ *./scripts/checkpatch.pl -f /home/cali/Desktop/ADSTR_2019/src/informe/informe.c
  * scp nom_executable pi@192.168.11.10X:/tmp
  * (on X és el número de dispositiu si es conecta a través de la xarxa
  * LAN i /tmp és el directori destí).
@@ -79,6 +80,11 @@ int main(int argc, char *argv[])
 	char data[200];
 	char texto[400];
 	char *fecha, *hora;
+
+	/** Para trabajar Bases de datos usamos el comando sqlite3_open
+	 * y se añade la ruta donde esta guardada la base de datos, en este
+	 * caso /ADSTR_2019/db/bbdd.db
+	 */
 	/* Open database */
 	rc = sqlite3_open("captura.db", &db);
 
@@ -113,8 +119,8 @@ int main(int argc, char *argv[])
 		memset(texto, '\0', sizeof(texto));
 
 		//Fecha/hora inicial
-		sprintf(sql, "SELECT MIN(Date_time_lecture) FROM "\
-			"Lectures_table WHERE ID = %d", n);
+		sprintf(sql, "SELECT MIN(Date_time_lecture)"\
+			" FROM Lectures_table WHERE ID = %d", n);
 		rc = sqlite3_exec(db, sql, getValues, (void *)data, &zErrMsg);
 		fecha = strtok(data, " ");
 		hora = strtok(hora, " ");
@@ -166,7 +172,10 @@ int main(int argc, char *argv[])
 		sqlite3_free(zErrMsg);
 	}
 
-	// Obtener numero de alarmas de la BBDD en SQL
+	// Obtener número de alarmas de la BBDD en SQL
+	/** Para obtener el número de alarmas máximo usamos el comando SQL:
+	 * SELECT Count(*) FROM Alarms_table
+	 */
 	sprintf(sql, "SELECT Count(*) FROM Alarms_table");
 	/* Execute SQL statement */
 	rc = sqlite3_exec(db, sql, getValues, (void *)data, &zErrMsg);
