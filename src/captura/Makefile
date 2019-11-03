@@ -1,0 +1,19 @@
+all: Appinforme
+
+Appinforme: bbdd.o informe.o
+
+bbdd.o: bbdd.c
+	rm -rf *db Captura
+	gcc bbdd.c -o bbdd -lsqlite3
+	./bbdd
+
+informe.o: informe.c
+	gcc informe.c -o informe -lsqlite3
+	./informe
+
+doxygen:
+	doxygen Doxyfile
+
+clean:
+	rm -rf *o *db *txt informe bbdd informe3 -r doc
+
