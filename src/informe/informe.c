@@ -102,7 +102,7 @@ int main(int argc, char *argv[])
 
 	/** Para trabajar Bases de datos usamos el comando sqlite3_open
 	 * y se añade la ruta donde esta guardada la base de datos, en este
-	 * caso /ADSTR_2019/db/bbdd.db
+	 * caso /ADSTR_2019/db/bbdd.db\n
 	**/
 	/* Open database */
 	rc = sqlite3_open("captura.db", &db);
@@ -116,6 +116,9 @@ int main(int argc, char *argv[])
 	if (fp == NULL)
 		printf("Could not open file");
 
+	/**
+	 * Después se obtiene el número máximos de sensores.
+	**/
 	/* Lectura nº sensores */
 	memset(data, '\0', sizeof(data));
 	sprintf(sql, "SELECT MAX(ID) FROM Sensors_table");
@@ -128,9 +131,12 @@ int main(int argc, char *argv[])
 		sqlite3_free(zErrMsg);
 	}
 	nSen = atoi(data);
-	//~ printf("\n\nEl numero de sensores es %d\n",nSen);
+	/**
+	 * A continuación, se obtiene toda la información incluida en el informe 
+	 * (mirar variable fp) y se imprime en el fichero .txt, con el formato
+	 * deseado
+	**/
 	int n;
-
 	for (n = 1; n <= nSen; n++) {
 		//Sensor
 		sprintf(texto, "\nInforme de sensor %d:\n", n);
@@ -143,7 +149,7 @@ int main(int argc, char *argv[])
 		rc = sqlite3_exec(db, sql, getValues, (void *)data, &zErrMsg);
 		fecha = strtok(data, " ");
 		hora = strtok(hora, " ");
-		sprintf(texto, "\tLa lectura empieza el dia: %s a las: %s\n",
+		sprintf(texto, "\tLa lectura empieza el dia %s a las %s\n",
 			fecha, hora);
 		fprintf(fp, "%s", texto);
 		memset(texto, '\0', sizeof(texto));
@@ -154,7 +160,7 @@ int main(int argc, char *argv[])
 		sqlite3_exec(db, sql, getValues, (void *)data, &zErrMsg);
 		fecha = strtok(data, " ");
 		hora = strtok(hora, " ");
-		sprintf(texto, "\tLa lectura acaba el dia: %s a las: %s\n",
+		sprintf(texto, "\tLa lectura acaba el dia %s a las %s\n",
 			fecha, hora);
 		fprintf(fp, "%s", texto);
 		memset(texto, '\0', sizeof(texto));

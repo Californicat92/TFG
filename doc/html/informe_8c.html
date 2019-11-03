@@ -148,8 +148,9 @@ Variables</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Esta función devuelve los valores que recibe de la base de datos y los pone en la variable data, que es un puntero. </p>
 
-<p class="definition">Definición en la línea <a class="el" href="informe_8c_source.html#l00074">74</a> del archivo <a class="el" href="informe_8c_source.html">informe.c</a>.</p>
+<p class="definition">Definición en la línea <a class="el" href="informe_8c_source.html#l00078">78</a> del archivo <a class="el" href="informe_8c_source.html">informe.c</a>.</p>
 
 </div>
 </div>
@@ -178,11 +179,14 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Para trabajar Bases de datos usamos el comando sqlite3_open y se añade la ruta donde esta guardada la base de datos, en este caso /ADSTR_2019/db/bbdd.db</p>
+<p>Para trabajar Bases de datos usamos el comando sqlite3_open y se añade la ruta donde esta guardada la base de datos, en este caso /ADSTR_2019/db/bbdd.db<br />
+</p>
+<p>Después se obtiene el número máximos de sensores.</p>
+<p>A continuación, se obtiene toda la información incluida en el informe (mirar variable fp) y se imprime en el fichero .txt, con el formato deseado</p>
 <p>Para obtener el número de alarmas máximo usamos el comando SQL: SELECT Count(*) FROM Alarms_table</p>
 <p>Imprimimos el listado de alarmas, obteniendo por separado cuando se produjo la incidencia y el motivo de esta. Después se separa la fecha y la hora en variables separadas para poderlas meter en el string</p>
 
-<p class="definition">Definición en la línea <a class="el" href="informe_8c_source.html#l00087">87</a> del archivo <a class="el" href="informe_8c_source.html">informe.c</a>.</p>
+<p class="definition">Definición en la línea <a class="el" href="informe_8c_source.html#l00091">91</a> del archivo <a class="el" href="informe_8c_source.html">informe.c</a>.</p>
 
 </div>
 </div>
@@ -218,7 +222,7 @@ X Sensor:</p><ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generado el Domingo, 3 de Noviembre de 2019 13:22:04 para informe.c por &#160;<a href="http://www.doxygen.org/index.html">
+Generado el Domingo, 3 de Noviembre de 2019 21:36:45 para informe.c por &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.13
 </small></address>

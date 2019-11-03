@@ -86,7 +86,7 @@
 1.0 \par
 }}informe.c}
 {\comment Generado porDoxgyen. }
-{\creatim \yr2019\mo11\dy3\hr13\min22\sec4}
+{\creatim \yr2019\mo11\dy3\hr21\min36\sec45}
 }\pard\plain 
 \sectd\pgnlcrm
 {\footer \s29\widctlpar\tqc\tx4320\tqr\tx8640\qr\adjustright \fs20\cgrid {\chpgn}}
@@ -235,9 +235,10 @@ static int getValues (void *  {\i data}, int  {\i argc}, char **  {\i argv}, cha
 {\bkmkend AAAAAAAAAB}
 {
 \pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
-\par
-{
-Definici\'F3n en la l\'EDnea 74 del archivo informe.c.}\par
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Esta funci\'F3n devuelve los valores que recibe de la base de datos y los pone en la variable data, que es un puntero. \par
+}{
+Definici\'F3n en la l\'EDnea 78 del archivo informe.c.}\par
 }
 {\xe \v main\:informe.c}
 {\xe \v informe.c\:main}
@@ -253,10 +254,12 @@ int main (int  {\i argc}, char *  {\i argv}[])}}
 \par
 }{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 Para trabajar Bases de datos usamos el comando sqlite3_open y se a\'F1ade la ruta donde esta guardada la base de datos, en este caso /ADSTR_2019/db/bbdd.db\par
+Despu\'E9s se obtiene el n\'FAmero m\'E1ximos de sensores.\par
+A continuaci\'F3n, se obtiene toda la informaci\'F3n incluida en el informe (mirar variable fp) y se imprime en el fichero .txt, con el formato deseado\par
 Para obtener el n\'FAmero de alarmas m\'E1ximo usamos el comando SQL: SELECT Count(*) FROM Alarms_table\par
 Imprimimos el listado de alarmas, obteniendo por separado cuando se produjo la incidencia y el motivo de esta. Despu\'E9s se separa la fecha y la hora en variables separadas para poderlas meter en el string\par
 }{
-Definici\'F3n en la l\'EDnea 87 del archivo informe.c.}\par
+Definici\'F3n en la l\'EDnea 91 del archivo informe.c.}\par
 }
 {\pard\widctlpar\brdrb\brdrs\brdrw5\brsp20 \adjustright \par}
 \pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
