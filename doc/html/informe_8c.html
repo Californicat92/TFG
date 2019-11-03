@@ -72,7 +72,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Trabaja una base da datos para generar un informe.  
+<p>Trabajar una base da datos para generar un informe.  
 <a href="#details">Más...</a></p>
 <div class="textblock"><code>#include &lt;stdio.h&gt;</code><br />
 <code>#include &lt;stdlib.h&gt;</code><br />
@@ -99,7 +99,7 @@ Variables</h2></td></tr>
 <tr class="separator:aa065f30aa9f5f9a42132c82c787ee70b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Descripción detallada</h2>
-<div class="textblock"><p>Trabaja una base da datos para generar un informe. </p>
+<div class="textblock"><p>Trabajar una base da datos para generar un informe. </p>
 
 <p class="definition">Definición en el archivo <a class="el" href="informe_8c_source.html">informe.c</a>.</p>
 </div><h2 class="groupheader">Documentación de las funciones</h2>
@@ -149,7 +149,7 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definición en la línea <a class="el" href="informe_8c_source.html#l00060">60</a> del archivo <a class="el" href="informe_8c_source.html">informe.c</a>.</p>
+<p class="definition">Definición en la línea <a class="el" href="informe_8c_source.html#l00074">74</a> del archivo <a class="el" href="informe_8c_source.html">informe.c</a>.</p>
 
 </div>
 </div>
@@ -180,8 +180,9 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <p>Para trabajar Bases de datos usamos el comando sqlite3_open y se añade la ruta donde esta guardada la base de datos, en este caso /ADSTR_2019/db/bbdd.db</p>
 <p>Para obtener el número de alarmas máximo usamos el comando SQL: SELECT Count(*) FROM Alarms_table</p>
+<p>Imprimimos el listado de alarmas, obteniendo por separado cuando se produjo la incidencia y el motivo de esta. Después se separa la fecha y la hora en variables separadas para poderlas meter en el string</p>
 
-<p class="definition">Definición en la línea <a class="el" href="informe_8c_source.html#l00073">73</a> del archivo <a class="el" href="informe_8c_source.html">informe.c</a>.</p>
+<p class="definition">Definición en la línea <a class="el" href="informe_8c_source.html#l00087">87</a> del archivo <a class="el" href="informe_8c_source.html">informe.c</a>.</p>
 
 </div>
 </div>
@@ -197,28 +198,27 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Formato bases de datos a usar: </p><pre class="fragment"> · Sensors_table
-    - ID
-    - Types (Magnitud)
-    - Description
+<p>Llamadas a archivo. Archivo de texto donde se escribirán los datos de los sensores y las alarmas<br />
+Formato:<br />
+<br />
+X Sensor:</p><ul>
+<li>Fecha/hora inicio</li>
+<li>Fecha/hora final</li>
+</ul>
+<p>Valor máximo</p><ul>
+<li>Valor mínimo</li>
+<li>Valor medio</li>
+</ul>
+<p>Listado de alarmas </p>
 
- · Lectures_table
-    - Date_time_lecture
-    - ID
-    - Value
-
- · Alarms_table
-    - Date_time_alarm
-    - Alarm_description</pre><p>gcc Informe3.c -o informe -lsqlite3 arm-linux-gnueabihf-gcc <a class="el" href="informe_8c.html" title="Trabaja una base da datos para generar un informe. ">informe.c</a> -o informe -lsqlite3 ./scripts/checkpatch.pl -f /home/cali/Desktop/ADSTR_2019/src/informe/informe.c scp nom_executable <a href="#" onclick="location.href='mai'+'lto:'+'pi@'+'19'+'2.1'+'68'+'.11'+'.1'+'0X'; return false;">pi@19<span style="display: none;">.nosp@m.</span>2.16<span style="display: none;">.nosp@m.</span>8.11.<span style="display: none;">.nosp@m.</span>10X</a>:/tmp (on X és el número de dispositiu si es conecta a través de la xarxa LAN i /tmp és el directori destí). <a href="#" onclick="location.href='mai'+'lto:'+'pi@'+'19'+'2.1'+'68'+'.11'+'.2'+'0X'; return false;">pi@19<span style="display: none;">.nosp@m.</span>2.16<span style="display: none;">.nosp@m.</span>8.11.<span style="display: none;">.nosp@m.</span>20X</a>:/tmp para WIFI </p>
-
-<p class="definition">Definición en la línea <a class="el" href="informe_8c_source.html#l00058">58</a> del archivo <a class="el" href="informe_8c_source.html">informe.c</a>.</p>
+<p class="definition">Definición en la línea <a class="el" href="informe_8c_source.html#l00072">72</a> del archivo <a class="el" href="informe_8c_source.html">informe.c</a>.</p>
 
 </div>
 </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generado el Domingo, 3 de Noviembre de 2019 12:27:47 para informe.c por &#160;<a href="http://www.doxygen.org/index.html">
+Generado el Domingo, 3 de Noviembre de 2019 13:22:04 para informe.c por &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.13
 </small></address>

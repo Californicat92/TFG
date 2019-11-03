@@ -1,13 +1,12 @@
 /**
  * @file			informe.c
- * @brief			Trabaja una base da datos para generar un informe
+ * @brief			Trabajar una base da datos para generar un informe
  * @package			ADSTR
  * @version			1.0
  * @author			Adrián, Fran & Christopher
  * @copyright (C)	2019 Alumnes EUSS ADSTR 2019
- */
-
-/**
+ * \n
+ * \n
  * @license        GNU/GPL, see COPYING
  * This program is free software: you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -19,11 +18,10 @@
    GNU General Public License for more details.
    You should have received a copy of the GNU General Public License
    along with this program.  If not, see http://www.gnu.org/licenses/.
- *
- *
+ *\n
  */
 
-/**
+/*
  * Formato bases de datos a usar:
  *
  *	· Sensors_table
@@ -41,7 +39,7 @@
  *		- Alarm_description
  */
 
-/**
+/*
  * gcc Informe3.c -o informe -lsqlite3
  * arm-linux-gnueabihf-gcc informe.c -o informe -lsqlite3
  *./scripts/checkpatch.pl -f /home/cali/Desktop/ADSTR_2019/src/informe/informe.c
@@ -56,6 +54,21 @@
 #include <stdlib.h>
 #include <sqlite3.h>
 #include <string.h>
+/**
+ * Llamadas a archivo. 
+ */
+/**
+ * Archivo de texto donde se escribirán los datos de los sensores y las alarmas\n
+ * Formato:\n\n
+ * X Sensor:
+ * 	- Fecha/hora inicio
+ * 	- Fecha/hora final
+ *	- Valor máximo
+ * 	- Valor mínimo
+ * 	- Valor medio
+ *
+ * Listado de alarmas
+ **/
 FILE * fp;
 
 static int getValues(void *data, int argc, char **argv, char **azColName)
@@ -86,7 +99,7 @@ int main(int argc, char *argv[])
 	/** Para trabajar Bases de datos usamos el comando sqlite3_open
 	 * y se añade la ruta donde esta guardada la base de datos, en este
 	 * caso /ADSTR_2019/db/bbdd.db
-	 */
+	**/
 	/* Open database */
 	rc = sqlite3_open("captura.db", &db);
 
@@ -99,7 +112,7 @@ int main(int argc, char *argv[])
 	if (fp == NULL)
 		printf("Could not open file");
 
-    /* Lectura nº sensores */
+	/* Lectura nº sensores */
 	memset(data, '\0', sizeof(data));
 	sprintf(sql, "SELECT MAX(ID) FROM Sensors_table");
 
@@ -174,10 +187,10 @@ int main(int argc, char *argv[])
 		sqlite3_free(zErrMsg);
 	}
 
-	// Obtener número de alarmas de la BBDD en SQL
 	/** Para obtener el número de alarmas máximo usamos el comando SQL:
-	 * SELECT Count(*) FROM Alarms_table
-	 */
+	* SELECT Count(*) FROM Alarms_table
+	**/
+	// Obtener número de alarmas de la BBDD en SQL
 	sprintf(sql, "SELECT Count(*) FROM Alarms_table");
 	/* Execute SQL statement */
 	rc = sqlite3_exec(db, sql, getValues, (void *)data, &zErrMsg);
@@ -186,9 +199,14 @@ int main(int argc, char *argv[])
 		sqlite3_free(zErrMsg);
 	}
 	nAlarm = atoi(data);
+
+	/**
+	 * Imprimimos el listado de alarmas, obteniendo por separado cuando se
+	 * produjo la incidencia y el motivo de esta. Después se separa la fecha
+	 * y la hora en variables separadas para poderlas meter en el string
+	**/
 	// Imprimir alarmas
 	int x;
-
 	fprintf(fp, "\n\nListado de alarmas:\n");
 	for (x = 1; x <= nAlarm; x++) {
 		sprintf(sql, "SELECT Date_time_alarm FROM Alarms_table WHERE "\

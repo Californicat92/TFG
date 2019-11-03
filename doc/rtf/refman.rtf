@@ -86,7 +86,7 @@
 1.0 \par
 }}informe.c}
 {\comment Generado porDoxgyen. }
-{\creatim \yr2019\mo11\dy3\hr12\min27\sec47}
+{\creatim \yr2019\mo11\dy3\hr13\min22\sec4}
 }\pard\plain 
 \sectd\pgnlcrm
 {\footer \s29\widctlpar\tqc\tx4320\tqr\tx8640\qr\adjustright \fs20\cgrid {\chpgn}}
@@ -136,7 +136,7 @@ Lista de archivos\par \pard\plain
 \par
 \pard\plain \s71\li360\sa27\sb27\widctlpar\tqr\tldot\tx8640\adjustright \fs20\cgrid 
 {\b src/informe/{\b informe.c} ({\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
-Trabaja una base da datos para generar un informe })} \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAAAA \\*MERGEFORMAT}{\fldrslt pagenum}}
+Trabajar una base da datos para generar un informe })} \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAAAA \\*MERGEFORMAT}{\fldrslt pagenum}}
 \par
 \par}
 \pard\plain \sect\sbkpage
@@ -156,13 +156,14 @@ Descripci\'F3n detallada\par
 \pard\plain \s17\sa60\sb30\widctlpar\qj \fs22\cgrid {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 \par
 {{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
-Versi\'F3n:\par}\pard\plain \s61\li360\widctlpar\ql\adjustright \fs20\cgrid 1.0\par
+Versi\'F3n:\par}\pard\plain \s61\li360\widctlpar\ql\adjustright \fs20\cgrid 1.0 \par
 }{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
 Autor:\par}\pard\plain \s61\li360\widctlpar\ql\adjustright \fs20\cgrid Adri\'E1n, Fran & Christopher \par
 }{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
-Copyright:\par}\pard\plain \s61\li360\widctlpar\ql\adjustright \fs20\cgrid (C) 2019 Alumnes EUSS {\b ADSTR} 2019\par
-}GNU/GPL, see COPYING This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version. This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with this program. If not, see {\f2 http://www.gnu.org/licenses/}. \par
-}}
+Copyright:\par}\pard\plain \s61\li360\widctlpar\ql\adjustright \fs20\cgrid (C) 2019 Alumnes EUSS {\b ADSTR} 2019 \par
+ \par
+  GNU/GPL, see COPYING This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version. This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with this program. If not, see {\f2 http://www.gnu.org/licenses/}. \par
+}}}
 
 \pard\plain \sect\sbkpage
 \s1\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs36\kerning36\cgrid 
@@ -177,7 +178,7 @@ Referencia del Archivo src/informe/informe.c\par \pard\plain
 \par
 {
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
-Trabaja una base da datos para generar un informe. }}\par
+Trabajar una base da datos para generar un informe. }}\par
 {
 \pard\plain \s18\widctlpar\fs22\cgrid {\f2 #include <stdio.h>}\par
 {\f2 #include <stdlib.h>}\par
@@ -216,7 +217,7 @@ Descripci\'F3n detallada\par
 \pard\plain 
 {
 \pard\plain \s17\sa60\sb30\widctlpar\qj \fs22\cgrid {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
-Trabaja una base da datos para generar un informe. \par
+Trabajar una base da datos para generar un informe. \par
 }{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 \par
 }}
@@ -236,7 +237,7 @@ static int getValues (void *  {\i data}, int  {\i argc}, char **  {\i argv}, cha
 \pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
 {
-Definici\'F3n en la l\'EDnea 60 del archivo informe.c.}\par
+Definici\'F3n en la l\'EDnea 74 del archivo informe.c.}\par
 }
 {\xe \v main\:informe.c}
 {\xe \v informe.c\:main}
@@ -253,8 +254,9 @@ int main (int  {\i argc}, char *  {\i argv}[])}}
 }{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 Para trabajar Bases de datos usamos el comando sqlite3_open y se a\'F1ade la ruta donde esta guardada la base de datos, en este caso /ADSTR_2019/db/bbdd.db\par
 Para obtener el n\'FAmero de alarmas m\'E1ximo usamos el comando SQL: SELECT Count(*) FROM Alarms_table\par
+Imprimimos el listado de alarmas, obteniendo por separado cuando se produjo la incidencia y el motivo de esta. Despu\'E9s se separa la fecha y la hora en variables separadas para poderlas meter en el string\par
 }{
-Definici\'F3n en la l\'EDnea 73 del archivo informe.c.}\par
+Definici\'F3n en la l\'EDnea 87 del archivo informe.c.}\par
 }
 {\pard\widctlpar\brdrb\brdrs\brdrw5\brsp20 \adjustright \par}
 \pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
@@ -271,25 +273,24 @@ FILE* fp}}
 {
 \pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
-Formato bases de datos a usar: {
+Llamadas a archivo. Archivo de texto donde se escribir\'E1n los datos de los sensores y las alarmas\par
+Formato:\par
 \par
-\pard\plain \s41\li360\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid  \'B7 Sensors_table\par
-    - ID\par
-    - Types (Magnitud)\par
-    - Description\par
+X Sensor:{
 \par
- \'B7 Lectures_table\par
-    - Date_time_lecture\par
-    - ID\par
-    - Value\par
+\pard\plain \s81\fi-360\li720\widctlpar\jclisttab\tx720{\*\pn \pnlvlbody\ilvl0\ls2\pnrnot0\pndec }\ls2\adjustright \fs20\cgrid 
+Fecha/hora inicio\par
+\pard\plain \s81\fi-360\li720\widctlpar\jclisttab\tx720{\*\pn \pnlvlbody\ilvl0\ls2\pnrnot0\pndec }\ls2\adjustright \fs20\cgrid 
+Fecha/hora final\par}
+Valor m\'E1ximo{
 \par
- \'B7 Alarms_table\par
-    - Date_time_alarm\par
-    - Alarm_description}
-\par
-gcc Informe3.c -o informe -lsqlite3 arm-linux-gnueabihf-gcc {\b informe.c} -o informe -lsqlite3 ./scripts/checkpatch.pl -f /home/cali/Desktop/ADSTR_2019/src/informe/informe.c scp nom_executable {\f2 pi@192.168.11.10X}:/tmp (on X \'E9s el n\'FAmero de dispositiu si es conecta a trav\'E9s de la xarxa LAN i /tmp \'E9s el directori dest\'ED). {\f2 pi@192.168.11.20X}:/tmp para WIFI \par
+\pard\plain \s81\fi-360\li720\widctlpar\jclisttab\tx720{\*\pn \pnlvlbody\ilvl0\ls2\pnrnot0\pndec }\ls2\adjustright \fs20\cgrid 
+Valor m\'EDnimo\par
+\pard\plain \s81\fi-360\li720\widctlpar\jclisttab\tx720{\*\pn \pnlvlbody\ilvl0\ls2\pnrnot0\pndec }\ls2\adjustright \fs20\cgrid 
+Valor medio\par}
+Listado de alarmas \par
 }{
-Definici\'F3n en la l\'EDnea 58 del archivo informe.c.}\par
+Definici\'F3n en la l\'EDnea 72 del archivo informe.c.}\par
 }
 
 \pard\plain \sect\sbkpage
