@@ -71,6 +71,10 @@
  **/
 FILE * fp;
 
+/**
+ * Esta función devuelve los valores que recibe de la base de datos y los pone
+ * en la variable data, que es un puntero.
+ */
 static int getValues(void *data, int argc, char **argv, char **azColName)
 {
 	int i;
