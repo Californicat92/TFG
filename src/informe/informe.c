@@ -1,11 +1,13 @@
 /**
- * @package ADSTR
- * @subpackage Informe
- * @version   1.0
- *
- * @author    Adrián, Fran & Christopher
- * @copyright (C) 2019 Alumne EUSS
- *
+ * @file			informe.c
+ * @brief			Trabaja una base da datos para generar un informe
+ * @package			ADSTR
+ * @version			1.0
+ * @author			Adrián, Fran & Christopher
+ * @copyright (C)	2019 Alumnes EUSS ADSTR 2019
+ */
+
+/**
  * @license        GNU/GPL, see COPYING
  * This program is free software: you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -193,7 +195,7 @@ int main(int argc, char *argv[])
 			"rowid = %d", x);
 		sqlite3_exec(db, sql, getValues, (void *)data, &zErrMsg);
 		fecha = strtok(data, " ");
-		hora = strtok(hora, " ");
+		hora = strtok(data, " ");
 		sprintf(texto, "\t%d.- Alarma ocurrida el día %s a las %s\n",
 		x, fecha, hora);
 		fprintf(fp, "%s", texto);

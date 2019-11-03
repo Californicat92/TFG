@@ -1,19 +1,12 @@
-all: Appinforme
+all: Appcaptura
 
-Appinforme: bbdd.o informe.o
+Appcaptura:
 
-bbdd.o: bbdd.c
+adc_spi_mcp3008.o: adc_spi_mcp3008.c
 	rm -rf *db Captura
-	gcc bbdd.c -o bbdd -lsqlite3
-	./bbdd
-
-informe.o: informe.c
-	gcc informe.c -o informe -lsqlite3
-	./informe
-
-doxygen:
-	doxygen Doxyfile
+	gcc adc_spi_mcp3008.c -o adc_spi_mcp3008 -lsqlite3
+	./adc_spi_mcp3008
 
 clean:
-	rm -rf *o *db *txt informe bbdd informe3 -r doc
+	rm -rf *o *db adc_spi_mcp3008 -r doc
 
