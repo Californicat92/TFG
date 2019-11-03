@@ -1,6 +1,4 @@
 # Makefile para aplicacion ADSTR_2019
-.PHONY            : all clean
-
 # Los programas a construir:
 SUBDIRS           := src/informe \
                      src/captura \
@@ -11,6 +9,9 @@ all:
 		$(MAKE) -C $$subDirectory all; \
 		if test $$? -ne 0; then exit 1; fi; \
 	done
+
+doc:
+	doxygen Doxyfile
 
 clean:
 	for subDirectory in $(SUBDIRS); do \
