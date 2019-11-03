@@ -14,10 +14,10 @@ doc:
 	doxygen Doxyfile
 
 help:
-	@echo   "Opciones make proyecto"
-	@echo   make all "Compila aplicaciones informe y captura"
-	@echo	make doc
-	@echo   make clean
+	@echo   Opciones make proyecto
+	@echo   make all    --Compila aplicaciones informe y captura
+	@echo	make doc    --Crea la documentación para el proyecto
+	@echo   make clean  --Limpia los directorios de archivos inecesarios
 
 clean:
 	for subDirectory in $(SUBDIRS); do \
