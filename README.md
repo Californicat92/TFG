@@ -15,3 +15,7 @@ git commit -m "(afegir text)" (enter)
 git push (enter)
 user Github (enter)
 pass Github (enter)
+
+For change mod:
+ls -als (executable)
+chmod +777 (executable)
