@@ -13,5 +13,5 @@ doxygen:
 	doxygen Doxyfile
 
 clean:
-	rm -rf *o *db *txt informe bbdd informe3 -r doc
+	rm -rf *o *db *txt informe bbdd
 
