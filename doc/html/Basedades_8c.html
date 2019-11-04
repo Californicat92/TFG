@@ -1,0 +1,939 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>ADSTR_2019: Referencia del Archivo src/captura/Basedades.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">ADSTR_2019
+   &#160;<span id="projectnumber">1.0</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Buscar');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Buscar');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_bbbcba97d1abfd8c0421357db737c0a9.html">captura</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#define-members">defines</a> &#124;
+<a href="#func-members">Funciones</a> &#124;
+<a href="#var-members">Variables</a>  </div>
+  <div class="headertitle">
+<div class="title">Referencia del Archivo Basedades.c</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &lt;stdio.h&gt;</code><br />
+<code>#include &lt;stdlib.h&gt;</code><br />
+<code>#include &lt;sqlite3.h&gt;</code><br />
+<code>#include &lt;stdint.h&gt;</code><br />
+<code>#include &lt;unistd.h&gt;</code><br />
+<code>#include &lt;getopt.h&gt;</code><br />
+<code>#include &lt;fcntl.h&gt;</code><br />
+<code>#include &lt;sys/ioctl.h&gt;</code><br />
+<code>#include &lt;linux/types.h&gt;</code><br />
+<code>#include &lt;linux/spi/spidev.h&gt;</code><br />
+<code>#include &lt;string.h&gt;</code><br />
+<code>#include &lt;time.h&gt;</code><br />
+</div>
+<p><a href="Basedades_8c_source.html">Ir al código fuente de este archivo.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+defines</h2></td></tr>
+<tr class="memitem:a30843e1844cf2dd28f7caffafc75344c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Basedades_8c.html#a30843e1844cf2dd28f7caffafc75344c">SINGLE_ENDED_CH0</a>&#160;&#160;&#160;8</td></tr>
+<tr class="separator:a30843e1844cf2dd28f7caffafc75344c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acaa84c6d4d2753fda166c706fd616685"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Basedades_8c.html#acaa84c6d4d2753fda166c706fd616685">SINGLE_ENDED_CH1</a>&#160;&#160;&#160;9</td></tr>
+<tr class="separator:acaa84c6d4d2753fda166c706fd616685"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3d03f4fd0477ac469946ddc0ed910936"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Basedades_8c.html#a3d03f4fd0477ac469946ddc0ed910936">SINGLE_ENDED_CH2</a>&#160;&#160;&#160;10</td></tr>
+<tr class="separator:a3d03f4fd0477ac469946ddc0ed910936"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a48f72e0802850cc17a92c92c59f24d5b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Basedades_8c.html#a48f72e0802850cc17a92c92c59f24d5b">SINGLE_ENDED_CH3</a>&#160;&#160;&#160;11</td></tr>
+<tr class="separator:a48f72e0802850cc17a92c92c59f24d5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af94c43c0d4b3c4b528be5311b8c47fab"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Basedades_8c.html#af94c43c0d4b3c4b528be5311b8c47fab">SINGLE_ENDED_CH4</a>&#160;&#160;&#160;12</td></tr>
+<tr class="separator:af94c43c0d4b3c4b528be5311b8c47fab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad96aa351ca4c5b6f49f9d6cbac3fdee6"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Basedades_8c.html#ad96aa351ca4c5b6f49f9d6cbac3fdee6">SINGLE_ENDED_CH5</a>&#160;&#160;&#160;13</td></tr>
+<tr class="separator:ad96aa351ca4c5b6f49f9d6cbac3fdee6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a28f0c1eb24227cdcea8c51e01f600f0d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Basedades_8c.html#a28f0c1eb24227cdcea8c51e01f600f0d">SINGLE_ENDED_CH6</a>&#160;&#160;&#160;14</td></tr>
+<tr class="separator:a28f0c1eb24227cdcea8c51e01f600f0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afa308d8ed4b88a6e4a8e8fe1601a4ab8"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Basedades_8c.html#afa308d8ed4b88a6e4a8e8fe1601a4ab8">SINGLE_ENDED_CH7</a>&#160;&#160;&#160;15</td></tr>
+<tr class="separator:afa308d8ed4b88a6e4a8e8fe1601a4ab8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abd8b9c2ae63517b092672acfd46a844c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Basedades_8c.html#abd8b9c2ae63517b092672acfd46a844c">DIFERENTIAL_CH0_CH1</a>&#160;&#160;&#160;0</td></tr>
+<tr class="separator:abd8b9c2ae63517b092672acfd46a844c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a001715a3e834f26b57a6f9d8aa558ea9"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Basedades_8c.html#a001715a3e834f26b57a6f9d8aa558ea9">DIFERENTIAL_CH1_CH0</a>&#160;&#160;&#160;1</td></tr>
+<tr class="separator:a001715a3e834f26b57a6f9d8aa558ea9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a24d91652985fa128c098540c3b4b431d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Basedades_8c.html#a24d91652985fa128c098540c3b4b431d">DIFERENTIAL_CH2_CH3</a>&#160;&#160;&#160;2</td></tr>
+<tr class="separator:a24d91652985fa128c098540c3b4b431d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9a02537ecc35f232bced2039a7c1fdb8"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Basedades_8c.html#a9a02537ecc35f232bced2039a7c1fdb8">DIFERENTIAL_CH3_CH2</a>&#160;&#160;&#160;3</td></tr>
+<tr class="separator:a9a02537ecc35f232bced2039a7c1fdb8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa1ba7eeb61211cb3c003c47583f76f0a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Basedades_8c.html#aa1ba7eeb61211cb3c003c47583f76f0a">DIFERENTIAL_CH4_CH5</a>&#160;&#160;&#160;4</td></tr>
+<tr class="separator:aa1ba7eeb61211cb3c003c47583f76f0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0aeb92b3d204a0a1f7933e957c0f227b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Basedades_8c.html#a0aeb92b3d204a0a1f7933e957c0f227b">DIFERENTIAL_CH5_CH4</a>&#160;&#160;&#160;5</td></tr>
+<tr class="separator:a0aeb92b3d204a0a1f7933e957c0f227b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1c466b6e839cd406c0926cbd554255f0"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Basedades_8c.html#a1c466b6e839cd406c0926cbd554255f0">DIFERENTIAL_CH6_CH7</a>&#160;&#160;&#160;6</td></tr>
+<tr class="separator:a1c466b6e839cd406c0926cbd554255f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab737c0ee9fbedccb3665dbb2715c0d57"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Basedades_8c.html#ab737c0ee9fbedccb3665dbb2715c0d57">DIFERENTIAL_CH7_CH6</a>&#160;&#160;&#160;7</td></tr>
+<tr class="separator:ab737c0ee9fbedccb3665dbb2715c0d57"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Funciones</h2></td></tr>
+<tr class="memitem:a8948ea7c788ba41fc481dbfbf160161b"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Basedades_8c.html#a8948ea7c788ba41fc481dbfbf160161b">pabort</a> (const char *s)</td></tr>
+<tr class="separator:a8948ea7c788ba41fc481dbfbf160161b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a53b624342a4b90b8dcbcac447f6b8829"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Basedades_8c.html#a53b624342a4b90b8dcbcac447f6b8829">spiadc_config_tx</a> (int conf, uint8_t tx[3])</td></tr>
+<tr class="separator:a53b624342a4b90b8dcbcac447f6b8829"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aad53bedf7a4ac9f69c872edde43965fb"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Basedades_8c.html#aad53bedf7a4ac9f69c872edde43965fb">spiadc_transfer</a> (int fd, uint8_t bits, uint32_t speed, uint16_t delay, uint8_t tx[3], uint8_t *rx, int len)</td></tr>
+<tr class="separator:aad53bedf7a4ac9f69c872edde43965fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa7b32fdbb1b7d6df5c07c87a93e4de77"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Basedades_8c.html#aa7b32fdbb1b7d6df5c07c87a93e4de77">spiadc_config_transfer</a> (int conf, int *value)</td></tr>
+<tr class="separator:aa7b32fdbb1b7d6df5c07c87a93e4de77"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae5029c6714b7b77296aa2096b846b6be"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Basedades_8c.html#ae5029c6714b7b77296aa2096b846b6be">callback</a> (void *NotUsed, int argc, char **argv, char **azColName)</td></tr>
+<tr class="separator:ae5029c6714b7b77296aa2096b846b6be"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeb7ee20b7e51407baf575c409937cf9d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Basedades_8c.html#aeb7ee20b7e51407baf575c409937cf9d">openDB</a> (char *name, sqlite3 **db)</td></tr>
+<tr class="separator:aeb7ee20b7e51407baf575c409937cf9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a410c838d04bca1e2a1059e0469bb7f32"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Basedades_8c.html#a410c838d04bca1e2a1059e0469bb7f32">CreateTable</a> (sqlite3 *db)</td></tr>
+<tr class="separator:a410c838d04bca1e2a1059e0469bb7f32"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab7ec2b8264dbe94cf70423066f8f6003"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Basedades_8c.html#ab7ec2b8264dbe94cf70423066f8f6003">CreateTable1</a> (sqlite3 *db)</td></tr>
+<tr class="separator:ab7ec2b8264dbe94cf70423066f8f6003"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2bb13ef33c11c9dcef1ba673b5b8cfd9"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Basedades_8c.html#a2bb13ef33c11c9dcef1ba673b5b8cfd9">CreateTable2</a> (sqlite3 *db)</td></tr>
+<tr class="separator:a2bb13ef33c11c9dcef1ba673b5b8cfd9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab728ced6335f7a19e708919417fa827f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Basedades_8c.html#ab728ced6335f7a19e708919417fa827f">insertTable</a> (sqlite3 *db, char *date, float value)</td></tr>
+<tr class="separator:ab728ced6335f7a19e708919417fa827f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaaaa0d905f784fabf0001385fb08e4ad"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Basedades_8c.html#aaaaa0d905f784fabf0001385fb08e4ad">insertTable1</a> (sqlite3 *db, char *date, float value)</td></tr>
+<tr class="separator:aaaaa0d905f784fabf0001385fb08e4ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a46907963f8b1c643b6847670b5702dd5"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Basedades_8c.html#a46907963f8b1c643b6847670b5702dd5">insertTable2</a> (sqlite3 *db, char *date_alarm, char *Alarm_description)</td></tr>
+<tr class="separator:a46907963f8b1c643b6847670b5702dd5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a97910346165800d08b45a7cf5f61ca71"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Basedades_8c.html#a97910346165800d08b45a7cf5f61ca71">showTable</a> (sqlite3 *db)</td></tr>
+<tr class="separator:a97910346165800d08b45a7cf5f61ca71"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0ddf1224851353fc92bfbff6f499fa97"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Basedades_8c.html#a0ddf1224851353fc92bfbff6f499fa97">main</a> (int argc, char *argv[])</td></tr>
+<tr class="separator:a0ddf1224851353fc92bfbff6f499fa97"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a0b2caeb4b6f130be43e5a2f0267dd453"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Basedades_8c.html#a0b2caeb4b6f130be43e5a2f0267dd453">verbose</a> = 0</td></tr>
+<tr class="separator:a0b2caeb4b6f130be43e5a2f0267dd453"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac982c97e48ef7d9ab42164971b2f1682"><td class="memItemLeft" align="right" valign="top">static char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Basedades_8c.html#ac982c97e48ef7d9ab42164971b2f1682">cntdevice</a> = &quot;/dev/spidev0.0&quot;</td></tr>
+<tr class="separator:ac982c97e48ef7d9ab42164971b2f1682"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Documentación de los 'defines'</h2>
+<a id="abd8b9c2ae63517b092672acfd46a844c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abd8b9c2ae63517b092672acfd46a844c">&#9670;&nbsp;</a></span>DIFERENTIAL_CH0_CH1</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DIFERENTIAL_CH0_CH1&#160;&#160;&#160;0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="Basedades_8c_source.html#l00052">52</a> del archivo <a class="el" href="Basedades_8c_source.html">Basedades.c</a>.</p>
+
+</div>
+</div>
+<a id="a001715a3e834f26b57a6f9d8aa558ea9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a001715a3e834f26b57a6f9d8aa558ea9">&#9670;&nbsp;</a></span>DIFERENTIAL_CH1_CH0</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DIFERENTIAL_CH1_CH0&#160;&#160;&#160;1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="Basedades_8c_source.html#l00053">53</a> del archivo <a class="el" href="Basedades_8c_source.html">Basedades.c</a>.</p>
+
+</div>
+</div>
+<a id="a24d91652985fa128c098540c3b4b431d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a24d91652985fa128c098540c3b4b431d">&#9670;&nbsp;</a></span>DIFERENTIAL_CH2_CH3</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DIFERENTIAL_CH2_CH3&#160;&#160;&#160;2</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="Basedades_8c_source.html#l00054">54</a> del archivo <a class="el" href="Basedades_8c_source.html">Basedades.c</a>.</p>
+
+</div>
+</div>
+<a id="a9a02537ecc35f232bced2039a7c1fdb8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9a02537ecc35f232bced2039a7c1fdb8">&#9670;&nbsp;</a></span>DIFERENTIAL_CH3_CH2</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DIFERENTIAL_CH3_CH2&#160;&#160;&#160;3</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="Basedades_8c_source.html#l00055">55</a> del archivo <a class="el" href="Basedades_8c_source.html">Basedades.c</a>.</p>
+
+</div>
+</div>
+<a id="aa1ba7eeb61211cb3c003c47583f76f0a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa1ba7eeb61211cb3c003c47583f76f0a">&#9670;&nbsp;</a></span>DIFERENTIAL_CH4_CH5</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DIFERENTIAL_CH4_CH5&#160;&#160;&#160;4</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="Basedades_8c_source.html#l00056">56</a> del archivo <a class="el" href="Basedades_8c_source.html">Basedades.c</a>.</p>
+
+</div>
+</div>
+<a id="a0aeb92b3d204a0a1f7933e957c0f227b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0aeb92b3d204a0a1f7933e957c0f227b">&#9670;&nbsp;</a></span>DIFERENTIAL_CH5_CH4</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DIFERENTIAL_CH5_CH4&#160;&#160;&#160;5</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="Basedades_8c_source.html#l00057">57</a> del archivo <a class="el" href="Basedades_8c_source.html">Basedades.c</a>.</p>
+
+</div>
+</div>
+<a id="a1c466b6e839cd406c0926cbd554255f0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1c466b6e839cd406c0926cbd554255f0">&#9670;&nbsp;</a></span>DIFERENTIAL_CH6_CH7</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DIFERENTIAL_CH6_CH7&#160;&#160;&#160;6</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="Basedades_8c_source.html#l00058">58</a> del archivo <a class="el" href="Basedades_8c_source.html">Basedades.c</a>.</p>
+
+</div>
+</div>
+<a id="ab737c0ee9fbedccb3665dbb2715c0d57"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab737c0ee9fbedccb3665dbb2715c0d57">&#9670;&nbsp;</a></span>DIFERENTIAL_CH7_CH6</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DIFERENTIAL_CH7_CH6&#160;&#160;&#160;7</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="Basedades_8c_source.html#l00059">59</a> del archivo <a class="el" href="Basedades_8c_source.html">Basedades.c</a>.</p>
+
+</div>
+</div>
+<a id="a30843e1844cf2dd28f7caffafc75344c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a30843e1844cf2dd28f7caffafc75344c">&#9670;&nbsp;</a></span>SINGLE_ENDED_CH0</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SINGLE_ENDED_CH0&#160;&#160;&#160;8</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="Basedades_8c_source.html#l00044">44</a> del archivo <a class="el" href="Basedades_8c_source.html">Basedades.c</a>.</p>
+
+</div>
+</div>
+<a id="acaa84c6d4d2753fda166c706fd616685"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acaa84c6d4d2753fda166c706fd616685">&#9670;&nbsp;</a></span>SINGLE_ENDED_CH1</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SINGLE_ENDED_CH1&#160;&#160;&#160;9</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="Basedades_8c_source.html#l00045">45</a> del archivo <a class="el" href="Basedades_8c_source.html">Basedades.c</a>.</p>
+
+</div>
+</div>
+<a id="a3d03f4fd0477ac469946ddc0ed910936"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3d03f4fd0477ac469946ddc0ed910936">&#9670;&nbsp;</a></span>SINGLE_ENDED_CH2</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SINGLE_ENDED_CH2&#160;&#160;&#160;10</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="Basedades_8c_source.html#l00046">46</a> del archivo <a class="el" href="Basedades_8c_source.html">Basedades.c</a>.</p>
+
+</div>
+</div>
+<a id="a48f72e0802850cc17a92c92c59f24d5b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a48f72e0802850cc17a92c92c59f24d5b">&#9670;&nbsp;</a></span>SINGLE_ENDED_CH3</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SINGLE_ENDED_CH3&#160;&#160;&#160;11</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="Basedades_8c_source.html#l00047">47</a> del archivo <a class="el" href="Basedades_8c_source.html">Basedades.c</a>.</p>
+
+</div>
+</div>
+<a id="af94c43c0d4b3c4b528be5311b8c47fab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af94c43c0d4b3c4b528be5311b8c47fab">&#9670;&nbsp;</a></span>SINGLE_ENDED_CH4</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SINGLE_ENDED_CH4&#160;&#160;&#160;12</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="Basedades_8c_source.html#l00048">48</a> del archivo <a class="el" href="Basedades_8c_source.html">Basedades.c</a>.</p>
+
+</div>
+</div>
+<a id="ad96aa351ca4c5b6f49f9d6cbac3fdee6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad96aa351ca4c5b6f49f9d6cbac3fdee6">&#9670;&nbsp;</a></span>SINGLE_ENDED_CH5</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SINGLE_ENDED_CH5&#160;&#160;&#160;13</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="Basedades_8c_source.html#l00049">49</a> del archivo <a class="el" href="Basedades_8c_source.html">Basedades.c</a>.</p>
+
+</div>
+</div>
+<a id="a28f0c1eb24227cdcea8c51e01f600f0d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a28f0c1eb24227cdcea8c51e01f600f0d">&#9670;&nbsp;</a></span>SINGLE_ENDED_CH6</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SINGLE_ENDED_CH6&#160;&#160;&#160;14</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="Basedades_8c_source.html#l00050">50</a> del archivo <a class="el" href="Basedades_8c_source.html">Basedades.c</a>.</p>
+
+</div>
+</div>
+<a id="afa308d8ed4b88a6e4a8e8fe1601a4ab8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afa308d8ed4b88a6e4a8e8fe1601a4ab8">&#9670;&nbsp;</a></span>SINGLE_ENDED_CH7</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SINGLE_ENDED_CH7&#160;&#160;&#160;15</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="Basedades_8c_source.html#l00051">51</a> del archivo <a class="el" href="Basedades_8c_source.html">Basedades.c</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Documentación de las funciones</h2>
+<a id="ae5029c6714b7b77296aa2096b846b6be"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae5029c6714b7b77296aa2096b846b6be">&#9670;&nbsp;</a></span>callback()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static int callback </td>
+          <td>(</td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>NotUsed</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>argc</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char **&#160;</td>
+          <td class="paramname"><em>argv</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char **&#160;</td>
+          <td class="paramname"><em>azColName</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="Basedades_8c_source.html#l00195">195</a> del archivo <a class="el" href="Basedades_8c_source.html">Basedades.c</a>.</p>
+
+</div>
+</div>
+<a id="a410c838d04bca1e2a1059e0469bb7f32"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a410c838d04bca1e2a1059e0469bb7f32">&#9670;&nbsp;</a></span>CreateTable()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int CreateTable </td>
+          <td>(</td>
+          <td class="paramtype">sqlite3 *&#160;</td>
+          <td class="paramname"><em>db</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="Basedades_8c_source.html#l00217">217</a> del archivo <a class="el" href="Basedades_8c_source.html">Basedades.c</a>.</p>
+
+</div>
+</div>
+<a id="ab7ec2b8264dbe94cf70423066f8f6003"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab7ec2b8264dbe94cf70423066f8f6003">&#9670;&nbsp;</a></span>CreateTable1()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int CreateTable1 </td>
+          <td>(</td>
+          <td class="paramtype">sqlite3 *&#160;</td>
+          <td class="paramname"><em>db</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="Basedades_8c_source.html#l00248">248</a> del archivo <a class="el" href="Basedades_8c_source.html">Basedades.c</a>.</p>
+
+</div>
+</div>
+<a id="a2bb13ef33c11c9dcef1ba673b5b8cfd9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2bb13ef33c11c9dcef1ba673b5b8cfd9">&#9670;&nbsp;</a></span>CreateTable2()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int CreateTable2 </td>
+          <td>(</td>
+          <td class="paramtype">sqlite3 *&#160;</td>
+          <td class="paramname"><em>db</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="Basedades_8c_source.html#l00276">276</a> del archivo <a class="el" href="Basedades_8c_source.html">Basedades.c</a>.</p>
+
+</div>
+</div>
+<a id="ab728ced6335f7a19e708919417fa827f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab728ced6335f7a19e708919417fa827f">&#9670;&nbsp;</a></span>insertTable()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int insertTable </td>
+          <td>(</td>
+          <td class="paramtype">sqlite3 *&#160;</td>
+          <td class="paramname"><em>db</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>date</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>value</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="Basedades_8c_source.html#l00308">308</a> del archivo <a class="el" href="Basedades_8c_source.html">Basedades.c</a>.</p>
+
+</div>
+</div>
+<a id="aaaaa0d905f784fabf0001385fb08e4ad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaaaa0d905f784fabf0001385fb08e4ad">&#9670;&nbsp;</a></span>insertTable1()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int insertTable1 </td>
+          <td>(</td>
+          <td class="paramtype">sqlite3 *&#160;</td>
+          <td class="paramname"><em>db</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>date</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>value</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="Basedades_8c_source.html#l00333">333</a> del archivo <a class="el" href="Basedades_8c_source.html">Basedades.c</a>.</p>
+
+</div>
+</div>
+<a id="a46907963f8b1c643b6847670b5702dd5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a46907963f8b1c643b6847670b5702dd5">&#9670;&nbsp;</a></span>insertTable2()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int insertTable2 </td>
+          <td>(</td>
+          <td class="paramtype">sqlite3 *&#160;</td>
+          <td class="paramname"><em>db</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>date_alarm</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>Alarm_description</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="Basedades_8c_source.html#l00361">361</a> del archivo <a class="el" href="Basedades_8c_source.html">Basedades.c</a>.</p>
+
+</div>
+</div>
+<a id="a0ddf1224851353fc92bfbff6f499fa97"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0ddf1224851353fc92bfbff6f499fa97">&#9670;&nbsp;</a></span>main()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int main </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>argc</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>argv</em>[]&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="Basedades_8c_source.html#l00411">411</a> del archivo <a class="el" href="Basedades_8c_source.html">Basedades.c</a>.</p>
+
+</div>
+</div>
+<a id="aeb7ee20b7e51407baf575c409937cf9d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeb7ee20b7e51407baf575c409937cf9d">&#9670;&nbsp;</a></span>openDB()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int openDB </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sqlite3 **&#160;</td>
+          <td class="paramname"><em>db</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="Basedades_8c_source.html#l00204">204</a> del archivo <a class="el" href="Basedades_8c_source.html">Basedades.c</a>.</p>
+
+</div>
+</div>
+<a id="a8948ea7c788ba41fc481dbfbf160161b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8948ea7c788ba41fc481dbfbf160161b">&#9670;&nbsp;</a></span>pabort()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void pabort </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>s</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="Basedades_8c_source.html#l00063">63</a> del archivo <a class="el" href="Basedades_8c_source.html">Basedades.c</a>.</p>
+
+</div>
+</div>
+<a id="a97910346165800d08b45a7cf5f61ca71"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a97910346165800d08b45a7cf5f61ca71">&#9670;&nbsp;</a></span>showTable()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int showTable </td>
+          <td>(</td>
+          <td class="paramtype">sqlite3 *&#160;</td>
+          <td class="paramname"><em>db</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="Basedades_8c_source.html#l00386">386</a> del archivo <a class="el" href="Basedades_8c_source.html">Basedades.c</a>.</p>
+
+</div>
+</div>
+<a id="aa7b32fdbb1b7d6df5c07c87a93e4de77"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa7b32fdbb1b7d6df5c07c87a93e4de77">&#9670;&nbsp;</a></span>spiadc_config_transfer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static int spiadc_config_transfer </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>conf</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>value</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="Basedades_8c_source.html#l00127">127</a> del archivo <a class="el" href="Basedades_8c_source.html">Basedades.c</a>.</p>
+
+</div>
+</div>
+<a id="a53b624342a4b90b8dcbcac447f6b8829"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a53b624342a4b90b8dcbcac447f6b8829">&#9670;&nbsp;</a></span>spiadc_config_tx()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void spiadc_config_tx </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>conf</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>tx</em>[3]&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="Basedades_8c_source.html#l00071">71</a> del archivo <a class="el" href="Basedades_8c_source.html">Basedades.c</a>.</p>
+
+</div>
+</div>
+<a id="aad53bedf7a4ac9f69c872edde43965fb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aad53bedf7a4ac9f69c872edde43965fb">&#9670;&nbsp;</a></span>spiadc_transfer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static int spiadc_transfer </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>fd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>bits</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>speed</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>delay</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>tx</em>[3], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t *&#160;</td>
+          <td class="paramname"><em>rx</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>len</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="Basedades_8c_source.html#l00094">94</a> del archivo <a class="el" href="Basedades_8c_source.html">Basedades.c</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Documentación de las variables</h2>
+<a id="ac982c97e48ef7d9ab42164971b2f1682"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac982c97e48ef7d9ab42164971b2f1682">&#9670;&nbsp;</a></span>cntdevice</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">char* cntdevice = &quot;/dev/spidev0.0&quot;</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="Basedades_8c_source.html#l00041">41</a> del archivo <a class="el" href="Basedades_8c_source.html">Basedades.c</a>.</p>
+
+</div>
+</div>
+<a id="a0b2caeb4b6f130be43e5a2f0267dd453"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0b2caeb4b6f130be43e5a2f0267dd453">&#9670;&nbsp;</a></span>verbose</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int verbose = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="Basedades_8c_source.html#l00039">39</a> del archivo <a class="el" href="Basedades_8c_source.html">Basedades.c</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Generado el Lunes, 4 de Noviembre de 2019 17:41:02 para ADSTR_2019 por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.13
+</small></address>
+</body>
+</html>

@@ -82,24 +82,24 @@
 {\s99\fi-360\li3600\widctlpar\fs20\cgrid \sbasedon0 \snext99 \sautoupd List Enum 9;}
 }
 {\info 
-{\title {\comment informe.c  {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+{\title {\comment ADSTR_2019  {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 1.0 \par
-}}informe.c}
+}}ADSTR_2019}
 {\comment Generado porDoxgyen. }
-{\creatim \yr2019\mo11\dy3\hr21\min36\sec45}
+{\creatim \yr2019\mo11\dy4\hr17\min41\sec2}
 }\pard\plain 
 \sectd\pgnlcrm
 {\footer \s29\widctlpar\tqc\tx4320\tqr\tx8640\qr\adjustright \fs20\cgrid {\chpgn}}
 \pard\plain \s16\qc\sa60\widctlpar\outlinelevel1\adjustright \f1\cgrid 
 \vertalc\qc\par\par\par\par\par\par\par
 \pard\plain \s15\qc\sb240\sa60\widctlpar\outlinelevel0\adjustright \b\f1\fs32\kerning28\cgrid 
-{\field\fldedit {\*\fldinst TITLE \\*MERGEFORMAT}{\fldrslt informe.c}}\par
+{\field\fldedit {\*\fldinst TITLE \\*MERGEFORMAT}{\fldrslt ADSTR_2019}}\par
 \pard\plain \s16\qc\sa60\widctlpar\outlinelevel1\adjustright \f1\cgrid 
 \par
 \par\par\par\par\par\par\par\par\par\par\par\par
 \pard\plain \s16\qc\sa60\widctlpar\outlinelevel1\adjustright \f1\cgrid 
 {\field\fldedit {\*\fldinst AUTHOR \\*MERGEFORMAT}{\fldrslt AUTHOR}}\par
-Versi\'F3n 1.0\par{\field\fldedit {\*\fldinst CREATEDATE \\*MERGEFORMAT}{\fldrslt Domingo, 3 de Noviembre de 2019 }}\par
+Versi\'F3n 1.0\par{\field\fldedit {\*\fldinst CREATEDATE \\*MERGEFORMAT}{\fldrslt Lunes, 4 de Noviembre de 2019 }}\par
 \page\page\vertalt
 \pard\plain 
 \s1\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs36\kerning36\cgrid Tabla de contenidos\par
@@ -121,7 +121,7 @@ Lista de 'namespaces'\par \pard\plain
 {
 \par
 \pard\plain \s71\li360\sa27\sb27\widctlpar\tqr\tldot\tx8640\adjustright \fs20\cgrid 
-{\b {\b ADSTR} } \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAAAE \\*MERGEFORMAT}{\fldrslt pagenum}}
+{\b {\b ADSTR} } \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAABL \\*MERGEFORMAT}{\fldrslt pagenum}}
 \par
 \par}
 \pard\plain \sect\sbkpage
@@ -135,8 +135,10 @@ Lista de archivos\par \pard\plain
 {
 \par
 \pard\plain \s71\li360\sa27\sb27\widctlpar\tqr\tldot\tx8640\adjustright \fs20\cgrid 
+{\b src/captura/{\b Basedades.c} } \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAAAA \\*MERGEFORMAT}{\fldrslt pagenum}}
+\par
 {\b src/informe/{\b informe.c} ({\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
-Trabajar una base da datos para generar un informe })} \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAAAA \\*MERGEFORMAT}{\fldrslt pagenum}}
+Trabajar una base da datos para generar un informe })} \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAABH \\*MERGEFORMAT}{\fldrslt pagenum}}
 \par
 \par}
 \pard\plain \sect\sbkpage
@@ -146,8 +148,8 @@ Documentaci\'F3n de namespaces\par \pard\plain
 Referencia del Namespace ADSTR\par \pard\plain 
 {\tc\tcl2 \v ADSTR}
 {\xe \v ADSTR}
-{\bkmkstart AAAAAAAAAE}
-{\bkmkend AAAAAAAAAE}
+{\bkmkstart AAAAAAAABL}
+{\bkmkend AAAAAAAABL}
 {\pard\widctlpar\brdrb\brdrs\brdrw5\brsp20 \adjustright \par}
 \pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
 Descripci\'F3n detallada\par
@@ -170,11 +172,577 @@ Copyright:\par}\pard\plain \s61\li360\widctlpar\ql\adjustright \fs20\cgrid (C) 2
 Documentaci\'F3n de archivos{\tc \v Documentaci\'F3n de archivos}
 \par \pard\plain 
 \pard\plain \s2\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs28\kerning28\cgrid 
+Referencia del Archivo src/captura/Basedades.c\par \pard\plain 
+{\tc\tcl2 \v src/captura/Basedades.c}
+{\xe \v src/captura/Basedades.c}
+{\bkmkstart AAAAAAAAAA}
+{\bkmkend AAAAAAAAAA}
+{
+\pard\plain \s18\widctlpar\fs22\cgrid {\f2 #include <stdio.h>}\par
+{\f2 #include <stdlib.h>}\par
+{\f2 #include <sqlite3.h>}\par
+{\f2 #include <stdint.h>}\par
+{\f2 #include <unistd.h>}\par
+{\f2 #include <getopt.h>}\par
+{\f2 #include <fcntl.h>}\par
+{\f2 #include <sys/ioctl.h>}\par
+{\f2 #include <linux/types.h>}\par
+{\f2 #include <linux/spi/spidev.h>}\par
+{\f2 #include <string.h>}\par
+{\f2 #include <time.h>}\par
+}
+\pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
+defines\par
+\pard\plain 
+
+{
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+#define {\b SINGLE_ENDED_CH0}\~ 8\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+#define {\b SINGLE_ENDED_CH1}\~ 9\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+#define {\b SINGLE_ENDED_CH2}\~ 10\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+#define {\b SINGLE_ENDED_CH3}\~ 11\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+#define {\b SINGLE_ENDED_CH4}\~ 12\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+#define {\b SINGLE_ENDED_CH5}\~ 13\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+#define {\b SINGLE_ENDED_CH6}\~ 14\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+#define {\b SINGLE_ENDED_CH7}\~ 15\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+#define {\b DIFERENTIAL_CH0_CH1}\~ 0\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+#define {\b DIFERENTIAL_CH1_CH0}\~ 1\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+#define {\b DIFERENTIAL_CH2_CH3}\~ 2\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+#define {\b DIFERENTIAL_CH3_CH2}\~ 3\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+#define {\b DIFERENTIAL_CH4_CH5}\~ 4\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+#define {\b DIFERENTIAL_CH5_CH4}\~ 5\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+#define {\b DIFERENTIAL_CH6_CH7}\~ 6\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+#define {\b DIFERENTIAL_CH7_CH6}\~ 7\par
+}
+\pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
+Funciones\par
+\pard\plain 
+
+{
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+static void {\b pabort} (const char *s)\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+static void {\b spiadc_config_tx} (int conf, uint8_t tx[3])\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+static int {\b spiadc_transfer} (int fd, uint8_t bits, uint32_t speed, uint16_t delay, uint8_t tx[3], uint8_t *rx, int len)\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+static int {\b spiadc_config_transfer} (int conf, int *value)\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+static int {\b callback} (void *NotUsed, int argc, char **argv, char **azColName)\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+int {\b openDB} (char *name, sqlite3 **db)\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+int {\b CreateTable} (sqlite3 *db)\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+int {\b CreateTable1} (sqlite3 *db)\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+int {\b CreateTable2} (sqlite3 *db)\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+int {\b insertTable} (sqlite3 *db, char *date, float value)\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+int {\b insertTable1} (sqlite3 *db, char *date, float value)\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+int {\b insertTable2} (sqlite3 *db, char *date_alarm, char *Alarm_description)\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+int {\b showTable} (sqlite3 *db)\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+int {\b main} (int argc, char *argv[])\par
+}
+\pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
+Variables\par
+\pard\plain 
+
+{
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+int {\b verbose} = 0\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+static char * {\b cntdevice} = "/dev/spidev0.0"\par
+}
+{\pard\widctlpar\brdrb\brdrs\brdrw5\brsp20 \adjustright \par}
+\pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
+Documentaci\'F3n de los 'defines'\par
+\pard\plain 
+{\xe \v DIFERENTIAL_CH0_CH1\:Basedades.c}
+{\xe \v Basedades.c\:DIFERENTIAL_CH0_CH1}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+#define DIFERENTIAL_CH0_CH1\~ 0}}
+\par
+{\bkmkstart AAAAAAAAAB}
+{\bkmkend AAAAAAAAAB}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+\par
+{
+Definici\'F3n en la l\'EDnea 52 del archivo Basedades.c.}\par
+}
+{\xe \v DIFERENTIAL_CH1_CH0\:Basedades.c}
+{\xe \v Basedades.c\:DIFERENTIAL_CH1_CH0}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+#define DIFERENTIAL_CH1_CH0\~ 1}}
+\par
+{\bkmkstart AAAAAAAAAC}
+{\bkmkend AAAAAAAAAC}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+\par
+{
+Definici\'F3n en la l\'EDnea 53 del archivo Basedades.c.}\par
+}
+{\xe \v DIFERENTIAL_CH2_CH3\:Basedades.c}
+{\xe \v Basedades.c\:DIFERENTIAL_CH2_CH3}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+#define DIFERENTIAL_CH2_CH3\~ 2}}
+\par
+{\bkmkstart AAAAAAAAAD}
+{\bkmkend AAAAAAAAAD}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+\par
+{
+Definici\'F3n en la l\'EDnea 54 del archivo Basedades.c.}\par
+}
+{\xe \v DIFERENTIAL_CH3_CH2\:Basedades.c}
+{\xe \v Basedades.c\:DIFERENTIAL_CH3_CH2}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+#define DIFERENTIAL_CH3_CH2\~ 3}}
+\par
+{\bkmkstart AAAAAAAAAE}
+{\bkmkend AAAAAAAAAE}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+\par
+{
+Definici\'F3n en la l\'EDnea 55 del archivo Basedades.c.}\par
+}
+{\xe \v DIFERENTIAL_CH4_CH5\:Basedades.c}
+{\xe \v Basedades.c\:DIFERENTIAL_CH4_CH5}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+#define DIFERENTIAL_CH4_CH5\~ 4}}
+\par
+{\bkmkstart AAAAAAAAAF}
+{\bkmkend AAAAAAAAAF}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+\par
+{
+Definici\'F3n en la l\'EDnea 56 del archivo Basedades.c.}\par
+}
+{\xe \v DIFERENTIAL_CH5_CH4\:Basedades.c}
+{\xe \v Basedades.c\:DIFERENTIAL_CH5_CH4}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+#define DIFERENTIAL_CH5_CH4\~ 5}}
+\par
+{\bkmkstart AAAAAAAAAG}
+{\bkmkend AAAAAAAAAG}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+\par
+{
+Definici\'F3n en la l\'EDnea 57 del archivo Basedades.c.}\par
+}
+{\xe \v DIFERENTIAL_CH6_CH7\:Basedades.c}
+{\xe \v Basedades.c\:DIFERENTIAL_CH6_CH7}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+#define DIFERENTIAL_CH6_CH7\~ 6}}
+\par
+{\bkmkstart AAAAAAAAAH}
+{\bkmkend AAAAAAAAAH}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+\par
+{
+Definici\'F3n en la l\'EDnea 58 del archivo Basedades.c.}\par
+}
+{\xe \v DIFERENTIAL_CH7_CH6\:Basedades.c}
+{\xe \v Basedades.c\:DIFERENTIAL_CH7_CH6}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+#define DIFERENTIAL_CH7_CH6\~ 7}}
+\par
+{\bkmkstart AAAAAAAAAI}
+{\bkmkend AAAAAAAAAI}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+\par
+{
+Definici\'F3n en la l\'EDnea 59 del archivo Basedades.c.}\par
+}
+{\xe \v SINGLE_ENDED_CH0\:Basedades.c}
+{\xe \v Basedades.c\:SINGLE_ENDED_CH0}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+#define SINGLE_ENDED_CH0\~ 8}}
+\par
+{\bkmkstart AAAAAAAAAJ}
+{\bkmkend AAAAAAAAAJ}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+\par
+{
+Definici\'F3n en la l\'EDnea 44 del archivo Basedades.c.}\par
+}
+{\xe \v SINGLE_ENDED_CH1\:Basedades.c}
+{\xe \v Basedades.c\:SINGLE_ENDED_CH1}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+#define SINGLE_ENDED_CH1\~ 9}}
+\par
+{\bkmkstart AAAAAAAAAK}
+{\bkmkend AAAAAAAAAK}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+\par
+{
+Definici\'F3n en la l\'EDnea 45 del archivo Basedades.c.}\par
+}
+{\xe \v SINGLE_ENDED_CH2\:Basedades.c}
+{\xe \v Basedades.c\:SINGLE_ENDED_CH2}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+#define SINGLE_ENDED_CH2\~ 10}}
+\par
+{\bkmkstart AAAAAAAAAL}
+{\bkmkend AAAAAAAAAL}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+\par
+{
+Definici\'F3n en la l\'EDnea 46 del archivo Basedades.c.}\par
+}
+{\xe \v SINGLE_ENDED_CH3\:Basedades.c}
+{\xe \v Basedades.c\:SINGLE_ENDED_CH3}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+#define SINGLE_ENDED_CH3\~ 11}}
+\par
+{\bkmkstart AAAAAAAAAM}
+{\bkmkend AAAAAAAAAM}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+\par
+{
+Definici\'F3n en la l\'EDnea 47 del archivo Basedades.c.}\par
+}
+{\xe \v SINGLE_ENDED_CH4\:Basedades.c}
+{\xe \v Basedades.c\:SINGLE_ENDED_CH4}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+#define SINGLE_ENDED_CH4\~ 12}}
+\par
+{\bkmkstart AAAAAAAAAN}
+{\bkmkend AAAAAAAAAN}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+\par
+{
+Definici\'F3n en la l\'EDnea 48 del archivo Basedades.c.}\par
+}
+{\xe \v SINGLE_ENDED_CH5\:Basedades.c}
+{\xe \v Basedades.c\:SINGLE_ENDED_CH5}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+#define SINGLE_ENDED_CH5\~ 13}}
+\par
+{\bkmkstart AAAAAAAAAO}
+{\bkmkend AAAAAAAAAO}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+\par
+{
+Definici\'F3n en la l\'EDnea 49 del archivo Basedades.c.}\par
+}
+{\xe \v SINGLE_ENDED_CH6\:Basedades.c}
+{\xe \v Basedades.c\:SINGLE_ENDED_CH6}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+#define SINGLE_ENDED_CH6\~ 14}}
+\par
+{\bkmkstart AAAAAAAAAP}
+{\bkmkend AAAAAAAAAP}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+\par
+{
+Definici\'F3n en la l\'EDnea 50 del archivo Basedades.c.}\par
+}
+{\xe \v SINGLE_ENDED_CH7\:Basedades.c}
+{\xe \v Basedades.c\:SINGLE_ENDED_CH7}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+#define SINGLE_ENDED_CH7\~ 15}}
+\par
+{\bkmkstart AAAAAAAAAQ}
+{\bkmkend AAAAAAAAAQ}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+\par
+{
+Definici\'F3n en la l\'EDnea 51 del archivo Basedades.c.}\par
+}
+{\pard\widctlpar\brdrb\brdrs\brdrw5\brsp20 \adjustright \par}
+\pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
+Documentaci\'F3n de las funciones\par
+\pard\plain 
+{\xe \v callback\:Basedades.c}
+{\xe \v Basedades.c\:callback}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+static int callback (void *  {\i NotUsed}, int  {\i argc}, char **  {\i argv}, char **  {\i azColName}){\f2 [static]}}}
+\par
+{\bkmkstart AAAAAAAAAR}
+{\bkmkend AAAAAAAAAR}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+\par
+{
+Definici\'F3n en la l\'EDnea 195 del archivo Basedades.c.}\par
+}
+{\xe \v CreateTable\:Basedades.c}
+{\xe \v Basedades.c\:CreateTable}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+int CreateTable (sqlite3 *  {\i db})}}
+\par
+{\bkmkstart AAAAAAAAAS}
+{\bkmkend AAAAAAAAAS}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+\par
+{
+Definici\'F3n en la l\'EDnea 217 del archivo Basedades.c.}\par
+}
+{\xe \v CreateTable1\:Basedades.c}
+{\xe \v Basedades.c\:CreateTable1}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+int CreateTable1 (sqlite3 *  {\i db})}}
+\par
+{\bkmkstart AAAAAAAAAT}
+{\bkmkend AAAAAAAAAT}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+\par
+{
+Definici\'F3n en la l\'EDnea 248 del archivo Basedades.c.}\par
+}
+{\xe \v CreateTable2\:Basedades.c}
+{\xe \v Basedades.c\:CreateTable2}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+int CreateTable2 (sqlite3 *  {\i db})}}
+\par
+{\bkmkstart AAAAAAAAAU}
+{\bkmkend AAAAAAAAAU}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+\par
+{
+Definici\'F3n en la l\'EDnea 276 del archivo Basedades.c.}\par
+}
+{\xe \v insertTable\:Basedades.c}
+{\xe \v Basedades.c\:insertTable}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+int insertTable (sqlite3 *  {\i db}, char *  {\i date}, float  {\i value})}}
+\par
+{\bkmkstart AAAAAAAAAV}
+{\bkmkend AAAAAAAAAV}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+\par
+{
+Definici\'F3n en la l\'EDnea 308 del archivo Basedades.c.}\par
+}
+{\xe \v insertTable1\:Basedades.c}
+{\xe \v Basedades.c\:insertTable1}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+int insertTable1 (sqlite3 *  {\i db}, char *  {\i date}, float  {\i value})}}
+\par
+{\bkmkstart AAAAAAAAAW}
+{\bkmkend AAAAAAAAAW}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+\par
+{
+Definici\'F3n en la l\'EDnea 333 del archivo Basedades.c.}\par
+}
+{\xe \v insertTable2\:Basedades.c}
+{\xe \v Basedades.c\:insertTable2}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+int insertTable2 (sqlite3 *  {\i db}, char *  {\i date_alarm}, char *  {\i Alarm_description})}}
+\par
+{\bkmkstart AAAAAAAAAX}
+{\bkmkend AAAAAAAAAX}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+\par
+{
+Definici\'F3n en la l\'EDnea 361 del archivo Basedades.c.}\par
+}
+{\xe \v main\:Basedades.c}
+{\xe \v Basedades.c\:main}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+int main (int  {\i argc}, char *  {\i argv}[])}}
+\par
+{\bkmkstart AAAAAAAAAY}
+{\bkmkend AAAAAAAAAY}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+\par
+{
+Definici\'F3n en la l\'EDnea 411 del archivo Basedades.c.}\par
+}
+{\xe \v openDB\:Basedades.c}
+{\xe \v Basedades.c\:openDB}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+int openDB (char *  {\i name}, sqlite3 **  {\i db})}}
+\par
+{\bkmkstart AAAAAAAAAZ}
+{\bkmkend AAAAAAAAAZ}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+\par
+{
+Definici\'F3n en la l\'EDnea 204 del archivo Basedades.c.}\par
+}
+{\xe \v pabort\:Basedades.c}
+{\xe \v Basedades.c\:pabort}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+static void pabort (const char *  {\i s}){\f2 [static]}}}
+\par
+{\bkmkstart AAAAAAAABA}
+{\bkmkend AAAAAAAABA}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+\par
+{
+Definici\'F3n en la l\'EDnea 63 del archivo Basedades.c.}\par
+}
+{\xe \v showTable\:Basedades.c}
+{\xe \v Basedades.c\:showTable}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+int showTable (sqlite3 *  {\i db})}}
+\par
+{\bkmkstart AAAAAAAABB}
+{\bkmkend AAAAAAAABB}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+\par
+{
+Definici\'F3n en la l\'EDnea 386 del archivo Basedades.c.}\par
+}
+{\xe \v spiadc_config_transfer\:Basedades.c}
+{\xe \v Basedades.c\:spiadc_config_transfer}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+static int spiadc_config_transfer (int  {\i conf}, int *  {\i value}){\f2 [static]}}}
+\par
+{\bkmkstart AAAAAAAABC}
+{\bkmkend AAAAAAAABC}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+\par
+{
+Definici\'F3n en la l\'EDnea 127 del archivo Basedades.c.}\par
+}
+{\xe \v spiadc_config_tx\:Basedades.c}
+{\xe \v Basedades.c\:spiadc_config_tx}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+static void spiadc_config_tx (int  {\i conf}, uint8_t  {\i tx}[3]){\f2 [static]}}}
+\par
+{\bkmkstart AAAAAAAABD}
+{\bkmkend AAAAAAAABD}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+\par
+{
+Definici\'F3n en la l\'EDnea 71 del archivo Basedades.c.}\par
+}
+{\xe \v spiadc_transfer\:Basedades.c}
+{\xe \v Basedades.c\:spiadc_transfer}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+static int spiadc_transfer (int  {\i fd}, uint8_t  {\i bits}, uint32_t  {\i speed}, uint16_t  {\i delay}, uint8_t  {\i tx}[3], uint8_t *  {\i rx}, int  {\i len}){\f2 [static]}}}
+\par
+{\bkmkstart AAAAAAAABE}
+{\bkmkend AAAAAAAABE}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+\par
+{
+Definici\'F3n en la l\'EDnea 94 del archivo Basedades.c.}\par
+}
+{\pard\widctlpar\brdrb\brdrs\brdrw5\brsp20 \adjustright \par}
+\pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
+Documentaci\'F3n de las variables\par
+\pard\plain 
+{\xe \v cntdevice\:Basedades.c}
+{\xe \v Basedades.c\:cntdevice}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+char* cntdevice = "/dev/spidev0.0"{\f2 [static]}}}
+\par
+{\bkmkstart AAAAAAAABF}
+{\bkmkend AAAAAAAABF}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+\par
+{
+Definici\'F3n en la l\'EDnea 41 del archivo Basedades.c.}\par
+}
+{\xe \v verbose\:Basedades.c}
+{\xe \v Basedades.c\:verbose}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+int verbose = 0}}
+\par
+{\bkmkstart AAAAAAAABG}
+{\bkmkend AAAAAAAABG}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+\par
+{
+Definici\'F3n en la l\'EDnea 39 del archivo Basedades.c.}\par
+}
+\par \pard\plain 
+
+\pard\plain \sect\sbkpage
+\s2\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs28\kerning28\cgrid 
+\pard\plain \s2\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs28\kerning28\cgrid 
 Referencia del Archivo src/informe/informe.c\par \pard\plain 
 {\tc\tcl2 \v src/informe/informe.c}
 {\xe \v src/informe/informe.c}
-{\bkmkstart AAAAAAAAAA}
-{\bkmkend AAAAAAAAAA}
+{\bkmkstart AAAAAAAABH}
+{\bkmkend AAAAAAAABH}
 \par
 {
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
@@ -231,8 +799,8 @@ Documentaci\'F3n de las funciones\par
 {\b 
 static int getValues (void *  {\i data}, int  {\i argc}, char **  {\i argv}, char **  {\i azColName}){\f2 [static]}}}
 \par
-{\bkmkstart AAAAAAAAAB}
-{\bkmkend AAAAAAAAAB}
+{\bkmkstart AAAAAAAABI}
+{\bkmkend AAAAAAAABI}
 {
 \pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
@@ -246,8 +814,8 @@ Definici\'F3n en la l\'EDnea 78 del archivo informe.c.}\par
 {\b 
 int main (int  {\i argc}, char *  {\i argv}[])}}
 \par
-{\bkmkstart AAAAAAAAAC}
-{\bkmkend AAAAAAAAAC}
+{\bkmkstart AAAAAAAABJ}
+{\bkmkend AAAAAAAABJ}
 {
 \pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
@@ -271,8 +839,8 @@ Documentaci\'F3n de las variables\par
 {\b 
 FILE* fp}}
 \par
-{\bkmkstart AAAAAAAAAD}
-{\bkmkend AAAAAAAAAD}
+{\bkmkstart AAAAAAAABK}
+{\bkmkend AAAAAAAABK}
 {
 \pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
