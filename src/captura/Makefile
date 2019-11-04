@@ -1,12 +1,12 @@
 all: Appcaptura
 
-Appcaptura:
+Appcaptura: Basedades.o
 
-adc_spi_mcp3008.o: adc_spi_mcp3008.c
-	rm -rf *db Captura
-	gcc adc_spi_mcp3008.c -o adc_spi_mcp3008 -lsqlite3
-	./adc_spi_mcp3008
+Basedades.o: Basedades.c
+	rm -rf Basedades
+	gcc Basedades.c -o Basedades -lsqlite3
+	./Basedades
 
 clean:
-	rm -rf *o *db adc_spi_mcp3008 -r doc
+	rm -rf *o *db Basedades -r doc
 

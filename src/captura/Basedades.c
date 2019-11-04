@@ -1,3 +1,27 @@
+/*
+  * Program: Basedades
+  * 
+  * Version: 1.0
+  * 
+  * Author: Joan Olivé,Estefan Molina,Ruben Uceda
+  * 
+  * Copyright (C) 2019 
+  * 
+  * EUSS 2019-Alumnes_EUSS, GRUP B1
+  * 
+  * License GNU/GPL, see COPYING
+  * This program is free software: you can redistribute it and/or modify
+  * it under the terms of the GNU General Public License as published by
+  * the Free Software Foundation, either version 3 of the License, or
+  * (at your option) any later version.
+  * This program is distributed in the hope that it will be useful,
+  * but WITHOUT ANY WARRANTY; without even the implied warranty of
+  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+  * GNU General Public License for more details.
+  * You should have received a copy of the GNU General Public License
+  * along with this program. If not, see http://www.gnu.org/licenses/.
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <sqlite3.h> 
@@ -12,7 +36,7 @@
 #include <time.h>
 
 
-int verbose = 1;
+int verbose = 0;
 
 static char *cntdevice = "/dev/spidev0.0";// definicio pin select (0.1)/CS1
 
@@ -177,7 +201,7 @@ static int callback(void *NotUsed, int argc, char **argv, char **azColName) {
    return 0;
 }
 
-int openDB(char * name, sqlite3** db){ //Aquesta funcio s'encarrega de crear o obrir la base de dades.
+int openDB(char * name, sqlite3** db){ //Crear o obrir la base de dades.
 	int rc;
 	/* Open database */
 	rc = sqlite3_open(name, db);
@@ -190,82 +214,20 @@ int openDB(char * name, sqlite3** db){ //Aquesta funcio s'encarrega de crear o o
 	return 0;
 }
 
-int CreateTable(sqlite3* db){ //Aquesta funcio s'encarrega de crear les taules .
+int CreateTable(sqlite3* db){ 
 	int rc;
 	char sql[500];
 	char *zErrMsg = 0;
-	char *slqa;
-	char *sqlb;
-	char *sqlc;
 	char *sqlx;
-	char *sqly;
-	char *sqlz;
-	 
-	/////////////////////////Creamos la primera tabla////////////////////////////////////////
-	sqla = "CREATE TABLE Sensors_table("  \
-      "ID					INTEGER 	PRIMARY KEY	AUTOINCREMENT," \
-      "TYPE					CHAR (50)    NOT NULL," \
-      "DESCRIPTION			CHAR (100)    NOT NULL);";
-     strcpy(sql,sqla); // El valor de sqla se copia en sql
-      
-   rc = sqlite3_exec(db, sql, callback, 0, &zErrMsg);
-   
-   if( rc != SQLITE_OK ){
-      fprintf(stderr, "SQL error: %s\n", zErrMsg);
-      sqlite3_free(zErrMsg);
-    
-
-	sqlb = "INSERT INTO Sensors_table (ID , TYPE , DESCRIPTION)" \
-			"VALUES (1,Voltage,Placa Solar); ";
-			strcpy(sql,sqlb);
+	
+			/* Creacion Tabla Lectures_table */
 			 
-	rc = sqlite3_exec(db, sql, callback, 0, &zErrMsg);
-	
-		if( rc != SQLITE_OK ){
-		  fprintf(stderr, "SQL error: %s\n", zErrMsg);
-		  sqlite3_free(zErrMsg);
+		  sqlx = "CREATE TABLE Lectures_table("  \
+		  "ID					INTEGER 	PRIMARY KEY	AUTOINCREMENT," \
+		  "Date_time_lecture	DATE    	NOT NULL," \
+		  "Value				INT   		NOT NULL);";
 		  
-		  return 1;
-		  
-	   } 
-	   	
-	
-	
-	
-	/////////////////////////Creamos la segunda tabla////////////////////////////////////////
-	sqlx = "CREATE TABLE Lectures_table("  \
-      "ID					INTEGER 	PRIMARY KEY	AUTOINCREMENT," \
-      "Date_time_lecture	DATE    NOT NULL," \
-      "Value				INT    NOT NULL);";
-     strcpy(sql,sqlx); // El valor de sqlx se copia en sql
-      
-   rc = sqlite3_exec(db, sql, callback, 0, &zErrMsg);
-   
-   if( rc != SQLITE_OK ){
-      fprintf(stderr, "SQL error: %s\n", zErrMsg);
-      sqlite3_free(zErrMsg);
-      
-          
-	/* Create SQL statement */
-	sqly = "INSERT INTO Lectures_table (Date_time_lecture,ID,Value)" \
-			"VALUES (t,1,value_volts); ";
-			strcpy(sql,sqly);
-			 
-	rc = sqlite3_exec(db, sql, callback, 0, &zErrMsg);
-	
-		if( rc != SQLITE_OK ){
-		  fprintf(stderr, "SQL error: %s\n", zErrMsg);
-		  sqlite3_free(zErrMsg);
-		  
-		  return 1;
-		  
-	   } 
-	   
-		/* Create SQL statement 3 
-		sql = "CREATE TABLE Alarms_table("  \
-		  "Date_time_alarm		DATA    NOT NULL," \
-		  "Alarm_description	CHAR(50)    NOT NULL," \
-		  "Fecha				INT    NOT NULL);";
+		 strcpy(sql,sqlx); // El valor de sqlx se copia en sql
 		  
 	   rc = sqlite3_exec(db, sql, callback, 0, &zErrMsg);
 	   
@@ -278,22 +240,79 @@ int CreateTable(sqlite3* db){ //Aquesta funcio s'encarrega de crear les taules .
 	   } else {
 		  fprintf(stdout, "Table created successfully\n");
 	   }
-	   
-	   */
 	
-	}
 	return 0;
 	
 }
 
-int insertTable(sqlite3* db, char* date, float value){
+int CreateTable1(sqlite3* db){ 
 	int rc;
 	char sql[500];
 	char *zErrMsg = 0;
 	char *sqlx;
-	char *sqly;
-	char *sqlz;
-	sprintf(sql,"INSERT INTO Lectures_table (Date_time_lecture,Value) VALUES ('%s',%f);", date, value);
+
+		/* Creacion Tabla Sensors_table */
+		
+		sqlx = "CREATE TABLE Sensors_table("  \
+		  "ID					INTEGER 	PRIMARY KEY	AUTOINCREMENT," \
+		  "Types				INT  		NOT NULL," \
+		  "Description			INT  		NOT NULL);";
+		  
+		 strcpy(sql,sqlx); // El valor de sqlx se copia en sql
+		  
+	   rc = sqlite3_exec(db, sql, callback, 0, &zErrMsg);
+	   
+	   if( rc != SQLITE_OK ){
+		  fprintf(stderr, "SQL error: %s\n", zErrMsg);
+		  sqlite3_free(zErrMsg);
+		   
+		  return 1;
+		}
+
+	return 0;
+	
+}
+
+int CreateTable2(sqlite3* db){ 
+	int rc;
+	char sql[500];
+	char *zErrMsg = 0;
+	char *sqlx;
+	 
+	   	/* Creacion Tabla Alarms_table */
+	   	
+		sqlx = "CREATE TABLE Alarms_table("  \
+		  "Date_time_alarm		DATE    NOT NULL," \
+		  "Alarm_description	CHAR    NOT NULL);";
+		  
+		  strcpy(sql,sqlx); 
+		  
+	   rc = sqlite3_exec(db, sql, callback, 0, &zErrMsg);
+	   
+	   if( rc != SQLITE_OK ){
+		  fprintf(stderr, "SQL error: %s\n", zErrMsg);
+		  sqlite3_free(zErrMsg);
+		  
+		  return 1;
+		  
+	   } 
+	   
+	   else {
+		  fprintf(stdout, "Table created successfully\n");
+	   }
+	     
+	return 0;
+	
+}
+
+int insertTable(sqlite3* db, char* date, float value){ //Insertar en la tabla lecture
+	int rc;
+	char sql[500];
+	char *zErrMsg = 0;
+	
+	 /* Insercion de valores Tabla Lectures_table */
+	
+	sprintf(sql,"INSERT INTO Lectures_table(Date_time_lecture,Value) VALUES ('%s',%f);", date, value);// Date_time y value denominacion en la tabla, denominacion de especificador de formato tipo string y float.
 	
 	rc = sqlite3_exec(db, sql, callback, 0, &zErrMsg);
 
@@ -302,68 +321,148 @@ int insertTable(sqlite3* db, char* date, float value){
 		sqlite3_free(zErrMsg);
 
 		return 1;
+		
 	}else{
 		fprintf(stdout, "Insercio correcta");
 	}
+	
 	return 0;
 	   
 }
 
-
-int showTable(sqlite3* db){
+int insertTable1(sqlite3* db, char* date, float value){ //Insertar en tabla sensor
 	int rc;
 	char sql[500];
 	char *zErrMsg = 0;
-	char *sqlx;
-	char *sqly;
-	char *sqlz;
+	int Description=1;
+	int Types=2;
 	
-	sqlx = "SELECT *FROM Sensors_table,Lectures_table;";
-	strcpy(sql,sqlx); // El valor de sqlx se copia en sql
-      
+	
+	/* Insercion de valores Tabla Sensors_table*/
+	
+	sprintf(sql,"INSERT INTO Sensors_table (Types,Description) VALUES (%d,%d);", Types, Description);// Date_time y value denominacion en la tabla, denominacion de especificador de formato tipo string y float.
+	
 	rc = sqlite3_exec(db, sql, callback, 0, &zErrMsg);
+
 	if( rc != SQLITE_OK ){
 		fprintf(stderr, "SQL error: %s\n", zErrMsg);
 		sqlite3_free(zErrMsg);
 
 		return 1;
-	} 
+		
+	}else{
+		fprintf(stdout, "Insercio correcta");
+	}
+	
+	return 0;
+	   
+}
+
+int insertTable2(sqlite3* db, char* date_alarm, char* Alarm_description){ //Insertar los valores en Alarms_table
+	int rc;
+	char sql[500];
+	char *zErrMsg = 0;
+	
+	 /* Insercion de valores Tabla Alarms_table*/
+	
+	sprintf(sql,"INSERT INTO Alarms_table (Date_time_alarm,Alarm_description) VALUES ('%s','%s');", date_alarm, Alarm_description);// Date_time y value denominacion en la tabla, denominacion de especificador de formato tipo string y float.
+	
+	rc = sqlite3_exec(db, sql, callback, 0, &zErrMsg);
+
+	if( rc != SQLITE_OK ){
+		fprintf(stderr, "SQL error: %s\n", zErrMsg);
+		sqlite3_free(zErrMsg);
+
+		return 1;
+		
+	}else{
+		fprintf(stdout, "Insercio correcta");
+	}
+	
+	return 0;
+	   
+}
+
+int showTable(sqlite3* db){ //Mostrat por pantalla el contenido de la base de datos.
+	
+	int rc;
+	char sql[500];
+	char *zErrMsg = 0;
+	
+	/* Visulizacion valores Tabla 1 */
+	
+	sprintf(sql, "SELECT * FROM Lectures_table,Sensors_table,Alarms_table");
+	//sprintf(sql, "SELECT * FROM Alarms_table");
+	rc = sqlite3_exec(db, sql, callback, 0, &zErrMsg);
+	
+	if( rc != SQLITE_OK ){
+		fprintf(stderr, "SQL error: %s\n", zErrMsg);
+		sqlite3_free(zErrMsg);
+
+		return 1;
+	}
+	
+	
 	
    return 0;
 }
 
 
 int main(int argc, char* argv[]) {
+	
 	char date[100];
-	sqlite3 *db;
-	
-	
-	openDB("BD_GA-B.db", &db);
-	CreateTable(db);
-	int ret = 0, value_int;
+	char date_alarm[100];
+	char Alarm_description[100];
+	int ret=0;
+	int value_int;
 	float value_volts;
 	
+	sqlite3 *db;
+	
+	openDB("captura.db", &db);
+	
+	CreateTable(db);
+	
+	CreateTable1(db);
+	
+	CreateTable2(db);
+
 	while(1){
 		ret = spiadc_config_transfer( SINGLE_ENDED_CH2, &value_int );
-		
-		//printf("valor llegit (0-1023) %d\n", value_int);
-		value_volts=3.3*value_int/1023;
-		
-		time_t t = time(NULL);
-		//time_t t = 1572027077; Ejemplo de que este numero es el tiempo.
-		//fprintf(stdout, "%lu\n", (unsigned long)t);
-		struct tm tm = *localtime(&t);
-		printf("Temps actual: %d-%d-%d %d:%d:%d\n", tm.tm_year + 1900, tm.tm_mon + 1,tm.tm_mday, tm.tm_hour, tm.tm_min, tm.tm_sec);	
 
-		sprintf(date,"%d-%d-%d %d:%d:%d", tm.tm_year + 1900, tm.tm_mon + 1,tm.tm_mday, tm.tm_hour, tm.tm_min, tm.tm_sec);	
+		//printf("voltatge %.3f V\n", value_volts);
+		//printf("valor llegit (0-1023) %d\n", value_int);
+		//fprintf(stdout, "%lu\n", (unsigned long)t);
+		
+		value_volts=3.3*value_int/1023;
+		time_t t = time(NULL);
+		struct tm tm = *localtime(&t);
+		//printf("Temps actual: %d-%d-%d %d:%d:%d\n", tm.tm_year + 1900, tm.tm_mon + 1,tm.tm_mday, tm.tm_hour, tm.tm_min, tm.tm_sec);	
+		sprintf(date,"%d-%d-%d %d:%d:%d", tm.tm_mday, tm.tm_mon + 1,tm.tm_year + 1900, tm.tm_hour, tm.tm_min, tm.tm_sec);	
 
 		insertTable(db,date,value_volts);
+		
+		insertTable1(db,date,value_volts);
+		
+			
+		/*Alarms*/
+		
+			if(value_volts > 2.7){
+			sprintf(Alarm_description,"Alerta_cabronazos");
+			sprintf(date_alarm,"%d-%d-%d %d:%d:%d", tm.tm_mday, tm.tm_mon + 1,tm.tm_year + 1900, tm.tm_hour, tm.tm_min, tm.tm_sec);
+	
+		}
+		
+			else{
+			sprintf(Alarm_description,NULL);
+			sprintf(date_alarm,NULL);
+		}
+	
+		insertTable2(db,date_alarm,Alarm_description);
+	
 		showTable(db);
-		//printf("voltatge %.3f V\n", value_volts);
+		
 		sleep(5);
-		
-		
-		
 	}
 	
 	sqlite3_close(db);
