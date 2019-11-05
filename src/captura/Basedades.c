@@ -203,11 +203,13 @@ static int callback(void *NotUsed, int argc, char **argv, char **azColName) {
 
 int openDB(char * name, sqlite3** db){ //Crear o obrir la base de dades.
 	int rc;
+	
 	/* Open database */
 	rc = sqlite3_open(name, db);
 	if( rc ) {
 		fprintf(stderr, "Can't open database: %s\n", sqlite3_errmsg(*db));
 		return 1;
+		
 	} else {
 		fprintf(stdout, "Opened database successfully\n");
 	}
@@ -217,92 +219,105 @@ int openDB(char * name, sqlite3** db){ //Crear o obrir la base de dades.
 int CreateTable(sqlite3* db){ 
 	int rc;
 	char sql[500];
+	char sql1[500];
 	char *zErrMsg = 0;
 	char *sqlx;
 	
-			/* Creacion Tabla Lectures_table */
-			 
-		  sqlx = "CREATE TABLE Lectures_table("  \
-		  "ID					INTEGER 	PRIMARY KEY	AUTOINCREMENT," \
-		  "Date_time_lecture	DATE    	NOT NULL," \
-		  "Value				INT   		NOT NULL);";
-		  
-		 strcpy(sql,sqlx); // El valor de sqlx se copia en sql
-		  
-	   rc = sqlite3_exec(db, sql, callback, 0, &zErrMsg);
-	   
-	   if( rc != SQLITE_OK ){
-		  fprintf(stderr, "SQL error: %s\n", zErrMsg);
-		  sqlite3_free(zErrMsg);
-		  
-		  return 1;
-		  
-	   } else {
-		  fprintf(stdout, "Table created successfully\n");
-	   }
 	
+	    /* Check crear tabla nueva o NO*/
+	sprintf(sql1, "SELECT MAX(ID) FROM Lectures_table");	
+	rc = sqlite3_exec(db, sql1, callback, 0, &zErrMsg);
+	
+		if (rc != SQLITE_OK){
+			
+						/* Creacion Tabla Lectures_table */
+			  sqlx = "CREATE TABLE Lectures_table("  \
+			  "ID					INTEGER 	PRIMARY KEY	AUTOINCREMENT," \
+			  "Date_time_lecture	DATE    	NOT NULL," \
+			  "Value				INT   		NOT NULL);";
+			  
+			strcpy(sql,sqlx); // El valor de sqlx se copia en sql
+			rc = sqlite3_exec(db, sql, callback, 0, &zErrMsg);
+		   
+				if( rc != SQLITE_OK ){
+				  fprintf(stderr, "SQL error: %s\n", zErrMsg);
+				  sqlite3_free(zErrMsg);
+				  return 1;
+				}  
+			   
+					else {
+					fprintf(stdout, "Table created successfully\n");
+					}
+		   
+		}
 	return 0;
-	
 }
 
 int CreateTable1(sqlite3* db){ 
 	int rc;
 	char sql[500];
+	char sql1[500];
 	char *zErrMsg = 0;
 	char *sqlx;
-
-		/* Creacion Tabla Sensors_table */
-		
-		sqlx = "CREATE TABLE Sensors_table("  \
-		  "ID					INTEGER 	PRIMARY KEY	AUTOINCREMENT," \
-		  "Types				INT  		NOT NULL," \
-		  "Description			INT  		NOT NULL);";
-		  
-		 strcpy(sql,sqlx); // El valor de sqlx se copia en sql
-		  
-	   rc = sqlite3_exec(db, sql, callback, 0, &zErrMsg);
-	   
-	   if( rc != SQLITE_OK ){
-		  fprintf(stderr, "SQL error: %s\n", zErrMsg);
-		  sqlite3_free(zErrMsg);
-		   
-		  return 1;
-		}
-
-	return 0;
 	
+				/* Check crear tabla nueva o NO*/
+		sprintf(sql1, "SELECT MAX(ID) FROM Sensors_table");
+		rc = sqlite3_exec(db, sql1, callback, 0, &zErrMsg);
+
+		if (rc != SQLITE_OK) {
+			/* Creacion Tabla Sensors_table */
+			
+			sqlx = "CREATE TABLE Sensors_table("  \
+			  "ID					INTEGER 	PRIMARY KEY	AUTOINCREMENT," \
+			  "Types				CHAR  		NOT NULL," \
+			  "Description			CHAR  		NOT NULL);";
+			  
+			 strcpy(sql,sqlx); // El valor de sqlx se copia en sql
+			 rc = sqlite3_exec(db, sql, callback, 0, &zErrMsg);
+		   
+		   if( rc != SQLITE_OK ){
+			  fprintf(stderr, "SQL error: %s\n", zErrMsg);
+			  sqlite3_free(zErrMsg);
+			  return 1;
+			}
+					else {
+					fprintf(stdout, "Table created successfully\n");
+					}
+		}
+	return 0;
 }
 
 int CreateTable2(sqlite3* db){ 
 	int rc;
 	char sql[500];
+	char sql1[500];
 	char *zErrMsg = 0;
 	char *sqlx;
-	 
-	   	/* Creacion Tabla Alarms_table */
-	   	
-		sqlx = "CREATE TABLE Alarms_table("  \
-		  "Date_time_alarm		DATE    NOT NULL," \
-		  "Alarm_description	CHAR    NOT NULL);";
-		  
-		  strcpy(sql,sqlx); 
-		  
-	   rc = sqlite3_exec(db, sql, callback, 0, &zErrMsg);
-	   
-	   if( rc != SQLITE_OK ){
-		  fprintf(stderr, "SQL error: %s\n", zErrMsg);
-		  sqlite3_free(zErrMsg);
-		  
-		  return 1;
-		  
-	   } 
-	   
-	   else {
-		  fprintf(stdout, "Table created successfully\n");
-	   }
-	     
+			/* Check crear tabla nueva o NO*/
+		sprintf(sql1, "SELECT MAX(ID) FROM Alarms_table");
+		rc = sqlite3_exec(db, sql1, callback, 0, &zErrMsg);
+
+			if (rc != SQLITE_OK) {
+		 
+				/* Creacion Tabla Alarms_table */
+			sqlx = "CREATE TABLE Alarms_table("  \
+			  "Date_time_alarm		DATE    NOT NULL," \
+			  "Alarm_description	CHAR    NOT NULL);";
+			  
+			   strcpy(sql,sqlx); 
+			   rc = sqlite3_exec(db, sql, callback, 0, &zErrMsg);
+		   
+		   if( rc != SQLITE_OK ){
+			  fprintf(stderr, "SQL error: %s\n", zErrMsg);
+			  sqlite3_free(zErrMsg);
+			   return 1; 
+		   } 
+		   
+				else {
+				fprintf(stdout, "Table created successfully\n");
+				}
+		}   
 	return 0;
-	
 }
 
 int insertTable(sqlite3* db, char* date, float value){ //Insertar en la tabla lecture
@@ -321,39 +336,36 @@ int insertTable(sqlite3* db, char* date, float value){ //Insertar en la tabla le
 		sqlite3_free(zErrMsg);
 
 		return 1;
-		
-	}else{
-		fprintf(stdout, "Insercio correcta");
-	}
-	
+		}
+			else{
+				fprintf(stdout, "Insercio correcta");
+			}
+			
 	return 0;
-	   
 }
 
 int insertTable1(sqlite3* db, char* date, float value){ //Insertar en tabla sensor
 	int rc;
 	char sql[500];
 	char *zErrMsg = 0;
-	int Description=1;
-	int Types=2;
+	char Description[100];
+	char Types[100];
 	
-	
-	/* Insercion de valores Tabla Sensors_table*/
-	
-	sprintf(sql,"INSERT INTO Sensors_table (Types,Description) VALUES (%d,%d);", Types, Description);// Date_time y value denominacion en la tabla, denominacion de especificador de formato tipo string y float.
-	
+		sprintf(Types,"Sensor Tension");
+		sprintf(Description,"Sensor que muestra la lectura de tension de la placa fotovoltaica");
+
+			/* Insercion de valores Tabla Sensors_table*/
+	sprintf(sql,"INSERT INTO Sensors_table (Types,Description) VALUES ('%s','%s');",Types, Description);
 	rc = sqlite3_exec(db, sql, callback, 0, &zErrMsg);
 
-	if( rc != SQLITE_OK ){
-		fprintf(stderr, "SQL error: %s\n", zErrMsg);
-		sqlite3_free(zErrMsg);
+		if( rc != SQLITE_OK ){
+			fprintf(stderr, "SQL error: %s\n", zErrMsg);
+			sqlite3_free(zErrMsg);
 
-		return 1;
-		
-	}else{
-		fprintf(stdout, "Insercio correcta");
-	}
-	
+			return 1;
+			
+		}
+
 	return 0;
 	   
 }
@@ -365,7 +377,7 @@ int insertTable2(sqlite3* db, char* date_alarm, char* Alarm_description){ //Inse
 	
 	 /* Insercion de valores Tabla Alarms_table*/
 	
-	sprintf(sql,"INSERT INTO Alarms_table (Date_time_alarm,Alarm_description) VALUES ('%s','%s');", date_alarm, Alarm_description);// Date_time y value denominacion en la tabla, denominacion de especificador de formato tipo string y float.
+	sprintf(sql,"INSERT INTO Alarms_table (Date_time_alarm,Alarm_description) VALUES ('%s','%s');",date_alarm, Alarm_description);
 	
 	rc = sqlite3_exec(db, sql, callback, 0, &zErrMsg);
 
@@ -374,10 +386,10 @@ int insertTable2(sqlite3* db, char* date_alarm, char* Alarm_description){ //Inse
 		sqlite3_free(zErrMsg);
 
 		return 1;
-		
-	}else{
-		fprintf(stdout, "Insercio correcta");
-	}
+		}
+			else{
+				fprintf(stdout, "Insercio correcta");
+			}
 	
 	return 0;
 	   
@@ -391,8 +403,9 @@ int showTable(sqlite3* db){ //Mostrat por pantalla el contenido de la base de da
 	
 	/* Visulizacion valores Tabla 1 */
 	
-	sprintf(sql, "SELECT * FROM Lectures_table,Sensors_table,Alarms_table");
-	//sprintf(sql, "SELECT * FROM Alarms_table");
+	sprintf(sql, "SELECT * FROM Lectures_table");
+	//sprintf(sql, "SELECT * FROM Lectures_table,Sensors_table,Alarms_table");
+
 	rc = sqlite3_exec(db, sql, callback, 0, &zErrMsg);
 	
 	if( rc != SQLITE_OK ){
@@ -401,9 +414,7 @@ int showTable(sqlite3* db){ //Mostrat por pantalla el contenido de la base de da
 
 		return 1;
 	}
-	
-	
-	
+
    return 0;
 }
 
@@ -448,16 +459,15 @@ int main(int argc, char* argv[]) {
 		/*Alarms*/
 		
 			if(value_volts > 2.7){
-			sprintf(Alarm_description,"Alerta_cabronazos");
+			sprintf(Alarm_description,"Exceso de tension");
 			sprintf(date_alarm,"%d-%d-%d %d:%d:%d", tm.tm_mday, tm.tm_mon + 1,tm.tm_year + 1900, tm.tm_hour, tm.tm_min, tm.tm_sec);
-	
-		}
-		
-			else{
+			}
+			
+			else 	{
 			sprintf(Alarm_description,NULL);
 			sprintf(date_alarm,NULL);
-		}
-	
+			}
+		
 		insertTable2(db,date_alarm,Alarm_description);
 	
 		showTable(db);
