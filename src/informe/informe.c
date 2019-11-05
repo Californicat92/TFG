@@ -88,32 +88,8 @@ static int getValues(void *data, int argc, char **argv, char **azColName)
 	return 0;
 }
 
-int main(int argc, char *argv[])
-{
-	
-		struct sockaddr_in	serverAddr;
-		char serverName[] = "172.20.0.21"; //Adreça IP on està el client
-		int	sockAddrSize;
-		int	sFd;
-		int	mlen;
-		int result;
-		char buffer[256];
-		char qui_soc[] = 	"HELO AE20_11 \n";
-		char desde[] = 		"MAIL FROM: 1422047@campus.euss.org \n";
-		char on[] = 		"RCPT TO: sbernadas@euss.es \n";
-		char data[] = 		"DATA \n";
-		char subject[] =	"Subject: primer mail programat en c \n" \
-							"From: 1422047@campus.euss.org \n" \
-							"To: sbernadas@euss.cat \n" \
-							"Cco: 1422047@campus.euss.org \n" \
-							"Bon dia, \n " \
-							"Nomino al noi del portàtil \n " \
-							"Salutacions, \n " \
-							"Christopher Juvé " \
-							"\n.\n";
-		char adeu[] = 		"quit";
-	
-	
+int main(int argc, char *argv[]){
+
 	sqlite3 *db;
 	char sql[120];
 	char *zErrMsg = 0;

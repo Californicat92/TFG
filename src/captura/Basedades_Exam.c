@@ -50,7 +50,7 @@
 #include <string.h>
 #include <time.h>
 
-#define VMAX	1
+#define 	1
 
 int verbose = 0;
 
