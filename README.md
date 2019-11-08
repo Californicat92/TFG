@@ -1,11 +1,11 @@
-# ADSTR_2019
-Assignatura ADSTR 2019-2020 www.EUSS.cat
+# TFG
+Assignatura TFG 2019-2020 www.EUSS.cat
 
 Descarga fichero de Github
-git clone https://github.com/Californicat92/ADSTR_2019.git
+git clone https://github.com/Californicat92/TFG.git
 
 For update you dir
-cd ADSTR_2019/ (enter)
+cd TFG/ (enter)
 git pull
 
 For update
